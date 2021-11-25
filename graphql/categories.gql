@@ -1,0 +1,10 @@
+query{
+  categories{
+    id
+    name
+    icon
+    slug
+    type
+    description
+  }
+}

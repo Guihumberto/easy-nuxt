@@ -1,0 +1,11 @@
+ query {
+            landingPage{
+              header{
+                logo{
+                  name
+                  url
+                }
+                title
+              }
+            }
+          }
