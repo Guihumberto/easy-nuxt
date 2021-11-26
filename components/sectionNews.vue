@@ -11,13 +11,13 @@
                 </v-col>
                 <v-col xs12 sm12 md6 lg6>
                     <v-chip small color="primary" outlined> 
-                        <v-icon left>mdi-home</v-icon>
+                        <v-icon small left>mdi-account-multiple</v-icon>2
                     </v-chip>
                     <v-chip small color="primary" outlined> 
-                        <v-icon left>mdi-heart</v-icon>
+                        <v-icon small left>mdi-heart</v-icon>
                     </v-chip>
                     <v-chip small color="primary" outlined> 
-                        <v-icon left>mdi-fridge</v-icon>
+                        <v-icon small left>mdi-comment-text-multiple</v-icon>
                     </v-chip>
 
                     <v-divider class="mt-3"></v-divider>
