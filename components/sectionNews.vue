@@ -14,10 +14,10 @@
                         <v-icon small left>mdi-account-multiple</v-icon>2
                     </v-chip>
                     <v-chip small color="primary" outlined> 
-                        <v-icon small left>mdi-heart</v-icon>
+                        <v-icon small left>mdi-heart</v-icon>20
                     </v-chip>
                     <v-chip small color="primary" outlined> 
-                        <v-icon small left>mdi-comment-text-multiple</v-icon>
+                        <v-icon small left>mdi-comment-text-multiple</v-icon>10
                     </v-chip>
 
                     <v-divider class="mt-3"></v-divider>
@@ -25,7 +25,7 @@
                     <h4 class="body-1">Description</h4>
                     <v-html>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur eaque praesentium, suscipit quidem blanditiis eius nisi? Quod similique modi impedit saepe illo sunt nobis laboriosam, eveniet corrupti, velit, nesciunt ullam!</v-html>
                     <div class="mt-3">
-                        <backBtn label="comprar" />
+                        <backBtn label="Pedir" />
                     </div>
                 </v-col>
             </v-row>

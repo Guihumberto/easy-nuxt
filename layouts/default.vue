@@ -26,6 +26,30 @@
     <v-app-bar app :clipped-left="$vuetify.breakpoint.lgAndUp">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title v-text="landingPage.header.title"></v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-menu
+        v-model="search"
+        :close-on-content-click="false"
+        offset-y
+      >
+        <template v-slot:activator="{on}">
+          <v-btn v-on="on" color="primary" icon>
+            <v-icon>mdi-magnify</v-icon>
+          </v-btn>
+        </template>
+        <v-card>
+          <v-card-title>Buscar...</v-card-title>
+          <v-card-text>
+            <v-text-field
+              outlined
+              label="Nome do Produto"
+              dense
+              v-model="findProduct"
+            ></v-text-field>
+            {{ findProduct }}
+          </v-card-text>
+        </v-card>
+      </v-menu>
     </v-app-bar>
 
     <v-main class="grey lighten-4">
@@ -54,6 +78,8 @@ import gql from 'graphql-tag'
     data(){
       return{
         drawer: false,
+        search: false,
+        findProduct: "",
         links: [
           { text: 'Home', icon: 'mdi-home', url:'/'},
           { text: 'Cardápio', icon: 'mdi-food-fork-drink', url:'/menu'},
