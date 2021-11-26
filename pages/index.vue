@@ -1,6 +1,11 @@
 <template>
     <v-container>
         <v-row>
+            <v-col>
+                <sectionTitle />
+            </v-col>
+        </v-row>
+        <v-row>
             <v-col v-for="now in news" :key="now.title">
                 <sectionNews 
                 :now="now"
@@ -15,10 +20,6 @@
                         <p>Disponivél apenas sabados e domingos</p>
                     </v-alert>
                 </div>
-
-                 <div class="mt-3">
-                     <backBtn />
-                 </div>
             </v-col>
         </v-row>
     </v-container>
