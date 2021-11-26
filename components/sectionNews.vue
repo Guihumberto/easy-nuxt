@@ -14,10 +14,10 @@
                         <v-icon left>mdi-home</v-icon>
                     </v-chip>
                     <v-chip small color="primary" outlined> 
-                        <v-icon left>mdi-home</v-icon>
+                        <v-icon left>mdi-heart</v-icon>
                     </v-chip>
                     <v-chip small color="primary" outlined> 
-                        <v-icon left>mdi-home</v-icon>
+                        <v-icon left>mdi-fridge</v-icon>
                     </v-chip>
 
                     <v-divider class="mt-3"></v-divider>

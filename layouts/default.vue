@@ -37,7 +37,6 @@
         <v-col class="text-center primary--text" cols="12">
           <img :src="'https://easy-strapi-api.herokuapp.com'+ landingPage.header.logo.url" />
         </v-col>
-        {{ 'maria'+ landingPage.header.logo.url }}
         <v-btn color="primary" small icon><v-icon>mdi-instagram</v-icon></v-btn>
         <v-btn color="primary" small icon><v-icon>mdi-whatsapp</v-icon></v-btn>
         <v-btn color="primary" small icon><v-icon>mdi-email</v-icon></v-btn>
