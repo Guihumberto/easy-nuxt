@@ -1,7 +1,7 @@
 <template>
     <v-card
       :loading="loading"
-      class="mx-auto my-12"
+      class="mx-auto my-auto"
       max-width="374"
     >
       <template slot="progress">
@@ -14,7 +14,7 @@
   
       <v-img
         height="250"
-        src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+        :src="menu.url"
       ></v-img>
   
       <v-card-title>{{ menu.name }}</v-card-title>

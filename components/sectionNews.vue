@@ -1,5 +1,5 @@
 <template>
-    <v-card class="mt-3">
+    <v-card>
         <v-card-title class="secondary--text">{{ now.title }}</v-card-title>
         <v-card-text class="black--text">
             <v-row>
