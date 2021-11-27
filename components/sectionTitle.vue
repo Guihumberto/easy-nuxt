@@ -5,7 +5,7 @@
     >
         <div>
             <v-img
-            src="https://easy-strapi-api.herokuapp.com/uploads/logo_1a2ac160e3.png"
+            src="https://easy-strapi-api.herokuapp.com/uploads/logo_21aada15af.png"
             max-height="130"
             max-width="130"
             ></v-img>

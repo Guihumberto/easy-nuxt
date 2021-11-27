@@ -5,7 +5,7 @@
             <v-row>
                 <v-col xs12 sm12 md6 lg6>
                     <v-img
-                        src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+                        src="https://moinhoglobo.com.br/wp-content/uploads/2019/05/16-hamburguer-1024x683.jpeg"
                         max-height="350"
                     ></v-img>
                 </v-col>
