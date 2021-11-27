@@ -11,11 +11,11 @@
             ></v-img>
         </div>
     
-        <v-card-subtitle>Listen to your favorite artists and albums whenever and wherever, online and offline.</v-card-subtitle>
+        <v-card-subtitle>Pinheiro acabou de ganhar o melhor Hamburguer feito pelo ambiente mais agradável da cidade.</v-card-subtitle>
 
         <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn text>
+            <v-btn text to="/menu">
                 Cardápio
             </v-btn>
         </v-card-actions>
