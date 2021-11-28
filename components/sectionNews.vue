@@ -5,7 +5,7 @@
             <v-row>
                 <v-col xs12 sm12 md6 lg6>
                     <v-img
-                        src="https://moinhoglobo.com.br/wp-content/uploads/2019/05/16-hamburguer-1024x683.jpeg"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROkPveEOrFMKXTS5SytrPxLqMaOGH-Fnbqxg&usqp=CAU"
                         max-height="350"
                     ></v-img>
                 </v-col>
@@ -22,8 +22,13 @@
 
                     <v-divider class="mt-3"></v-divider>
 
-                    <h4 class="body-1">Description</h4>
-                    <v-html>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur eaque praesentium, suscipit quidem blanditiis eius nisi? Quod similique modi impedit saepe illo sunt nobis laboriosam, eveniet corrupti, velit, nesciunt ullam!</v-html>
+                    <h4 class="body-1">Pack com 6 budweiser longneck por R$20</h4>
+                    <v-html>
+                        6 unidades de budweiser longneck natural para retirada.
+                        Limitado a 10 packs.
+                        acrescente o valor de R$ 5 para levar o pack gelado. 
+                        Corre!!!
+                    </v-html>
                     <div class="mt-3">
                         <backBtn label="Pedir" />
                     </div>

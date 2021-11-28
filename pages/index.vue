@@ -31,7 +31,7 @@
         data(){
             return{
                 news:[
-                    {title:"Pratos do Dia", subtitle:"serve bem 2 pessoas", price: "25", frete: "grátis"},
+                    {title:"Promoção", subtitle:"serve bem 2 pessoas", price: "25", frete: "grátis"},
                 ]
             }
         }
