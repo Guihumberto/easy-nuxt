@@ -61,9 +61,9 @@
         <v-col class="text-center primary--text" cols="12">
           <img src="@/assets/img/logo.png" />
         </v-col>
-        <v-btn color="primary" small icon><v-icon>mdi-instagram</v-icon></v-btn>
-        <v-btn color="primary" small icon><v-icon>mdi-whatsapp</v-icon></v-btn>
-        <v-btn color="primary" small icon><v-icon>mdi-email</v-icon></v-btn>
+        <v-btn color="primary" small icon  target="_blank" href="https://www.instagram.com/easyboteco/"><v-icon>mdi-instagram</v-icon></v-btn>
+        <v-btn color="primary" small icon  target="_blank" href="https://www.instagram.com/easyboteco/"><v-icon>mdi-whatsapp</v-icon></v-btn>
+        <v-btn color="primary" small icon  to="/about"><v-icon>mdi-email</v-icon></v-btn>
         <v-col class="text-center primary--text" cols="12">&copy; {{new Date().getFullYear()}} - Grupo Easy</v-col>
       </v-row>
     </v-footer>
@@ -83,7 +83,6 @@ import gql from 'graphql-tag'
         links: [
           { text: 'Home', icon: 'mdi-home', url:'/'},
           { text: 'Cardápio', icon: 'mdi-food-fork-drink', url:'/menu'},
-          { text: 'Contato', icon: 'mdi-email-fast', url:'/contact'},
           { text: 'Sobre', icon: 'mdi-help-box', url:'/about'}
         ]
       }

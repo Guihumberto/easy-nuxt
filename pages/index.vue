@@ -22,6 +22,7 @@
                 </div>
             </v-col>
         </v-row>
+        <menuSingleCard />
     </v-container>
 </template>
 

@@ -48,7 +48,7 @@
                     <v-card-subtitle>
                         <v-list>
                             <v-list-item-group>
-                                <v-list-item>
+                                <v-list-item target="_blank" href="https://www.instagram.com/easyboteco/">
                                     <v-list-item-icon>
                                         <v-icon>mdi-instagram</v-icon>
                                     </v-list-item-icon>
@@ -56,7 +56,7 @@
                                         <v-list-item-title>@easyboteco</v-list-item-title>
                                     </v-list-item-content>
                                 </v-list-item>
-                                <v-list-item>
+                                <v-list-item target="_blank" url="juninho.joao@hotmail.com">
                                     <v-list-item-icon>
                                         <v-icon>mdi-email</v-icon>
                                     </v-list-item-icon>
