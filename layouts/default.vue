@@ -59,7 +59,7 @@
     <v-footer padless>
       <v-row justify="center" no-gutters>
         <v-col class="text-center primary--text" cols="12">
-          <img :src="'https://easy-strapi-api.herokuapp.com'+ landingPage.header.logo.url" />
+          <img src="@/assets/img/logo.png" />
         </v-col>
         <v-btn color="primary" small icon><v-icon>mdi-instagram</v-icon></v-btn>
         <v-btn color="primary" small icon><v-icon>mdi-whatsapp</v-icon></v-btn>

@@ -4,11 +4,7 @@
         dark
     >
         <div>
-            <v-img
-            src="https://easy-strapi-api.herokuapp.com/uploads/logo_21aada15af.png"
-            max-height="130"
-            max-width="130"
-            ></v-img>
+            <img src="@/assets/img/logo.png" />
         </div>
     
         <v-card-subtitle>Pinheiro acabou de ganhar o melhor Hamburguer feito pelo ambiente mais agradável da cidade.</v-card-subtitle>
