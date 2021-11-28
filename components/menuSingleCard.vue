@@ -30,7 +30,6 @@
                   ></v-card-title>
           
                   <v-card-subtitle v-text="item.artist"></v-card-subtitle>
-                  <div class="d-flex">
                     <v-chip small outlined>{{item.qtd}}</v-chip>
                     <v-card-actions>
                       <v-btn
@@ -54,7 +53,6 @@
                         Fazer Pedido
                       </v-btn>
                     </v-card-actions>
-                  </div>
                 </div>
               </div>
             </v-card>
