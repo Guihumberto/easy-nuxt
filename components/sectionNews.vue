@@ -30,7 +30,7 @@
                         Corre!!!
                     </v-html>
                     <div class="mt-3">
-                        <backBtn label="Pedir" />
+                        <v-btn color="primary" to="/productSelect">Pedir agora</v-btn>
                     </div>
                 </v-col>
             </v-row>
