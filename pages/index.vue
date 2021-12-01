@@ -28,6 +28,7 @@
 
 <script>
     export default {
+        middleware:"initData",
         data(){
             return{
                 news:[

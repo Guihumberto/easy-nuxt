@@ -41,7 +41,36 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/apollo',
+    '@nuxtjs/axios',
+    '@nuxtjs/auth-next'
   ],
+  auth: {
+    strategies: {
+      local: {
+        token: {
+          property: 'jwt',
+          type: 'Bearer'
+        },
+        user: {
+          property: false,
+        },
+        endpoints: {
+          login: { url: 'auth/local', method: 'post' },
+          logout: false,
+          user: { url: 'users/me', method: 'get' }
+        }
+      }
+    },
+    redirect: {
+      login: '/',
+      logout: '/',
+      callback: '/',
+      home: '/user'
+    }
+  },
+  axios:{
+    baseURL:'https://easy-strapi-api.herokuapp.com/'
+  },
 
   apollo: {
     clientConfigs: {
@@ -72,5 +101,8 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
+  // router: {
+  //   middleware:"initData"
+  // }
 }
