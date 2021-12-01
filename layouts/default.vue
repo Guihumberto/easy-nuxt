@@ -84,8 +84,8 @@
         </v-menu>
       </div>
       <div v-else>
-        <v-btn text color="primary" @click="dialog = true; type='forms-login'">Login</v-btn>
-        <v-btn text color="primary" @click="dialog = true; type='forms-register'">Criar Conta</v-btn>
+        <v-btn small icon color="primary" @click="dialog = true; type='forms-login'"><v-icon>mdi-login</v-icon></v-btn>
+        <v-btn small icon color="primary" @click="dialog = true; type='forms-register'"><v-icon>mdi-account-plus</v-icon></v-btn>
       </div>
 
     </v-app-bar>
