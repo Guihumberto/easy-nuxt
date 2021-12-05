@@ -7,7 +7,7 @@
             <img src="@/assets/img/logo.png" />
         </div>
     
-        <v-card-subtitle>Faça seus pedidos e acompanhe nossas promoções pelo site pelo Easy Express, o site da Easy Conveniência. Disponível para retirada e entregas.</v-card-subtitle>
+        <v-card-subtitle>Faça seus pedidos e acompanhe nossas promoções pela Easy Express, o site da Easy Conveniência. Disponível para retirada e entregas.</v-card-subtitle>
 
         <v-card-actions>
             <v-spacer></v-spacer>
