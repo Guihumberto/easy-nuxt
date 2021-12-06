@@ -19,8 +19,9 @@
                       <v-img contain width="100" :src="product.img"></v-img>
                   </div>
                   <div>
-                      Acompanhamentos:
-                      <forms-Counter />
+                      Qtd:
+                      <input v-model="product.qty" type="number" min="1">
+                      <v-btn @click="addCart(product)" block>Adicionar</v-btn>
                   </div>
               </div>
               
@@ -40,12 +41,12 @@
                 absolute
                 bottom
             >
-                <v-icon small class="ml-2">mdi-cart</v-icon>Carrinho ({{totalItems}}) R$0,00
+                <v-icon small class="ml-2">mdi-cart</v-icon>Carrinho ({{cartItems.length || 0}}) R$ {{Total | formatCurrency}}
             </v-btn>
             <v-bottom-sheet v-model="sheet">
                 <v-sheet
                 class="text-center"
-                height="200px"
+                min-height="200px"
                 width="500"
                 >
                 <v-btn
@@ -58,32 +59,46 @@
                     <v-spacer></v-spacer><v-icon color="red">mdi-close</v-icon>
                 </v-btn>
                 <div class="py-3">
-                    <shopping-cart inline-template :items="cartItems">
-                        <div>
-                            <table class="table table-cart">
-                                <tr v-for="product in products" :key="product.id">
-                                    <td>{{product.title}}</td>
-                                    <td style="width:120px">QTY:
-                                        <input v-model="product.qty" class="form-control input-qty" type="number" min="1">
-                                    </td>
-                                    <td class="text-right">${{product.price | formatCurrency}}</td>
-                                    <td>
-                                        <button @click="removeItem(product.id)"><span class="glyphicon glyphicon-trash"></span></button>
-                                    </td>
-                                </tr>
-                                <tr v-show="products.length === 0">
-                                    <td colspan="4" class="text-center">Carrinho está vazio</td>
-                                </tr>
-                                <tr v-show="products.length > 0">
-                                    <td></td>
-                                    <td class="text-right">Cart Total</td>
-                                    <td class="text-right">${{Total | formatCurrency}}</td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                        </div>
-                        <!-- /.container -->
-                    </shopping-cart>
+                    <v-simple-table v-show="cartItems.length > 0">
+                        <template v-slot:default>
+                            <thead>
+                            <tr>
+                                <th class="text-left">
+                                Produto
+                                </th>
+                                <th class="text-left">
+                                Qtd
+                                </th>
+                                <th class="text-left">
+                                Valor
+                                </th>
+                                <th class="text-left">
+                                #
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr
+                                v-for="item in cartItems"
+                                :key="item.id"
+                            >
+                                <td>{{ item.title }}</td>
+                                <td>{{ item.qty }}</td>
+                                <td>{{ item.price }}</td>
+                                <td @click="removeItem(item)"><v-icon small color="error">mdi-trash-can</v-icon></td>
+                            </tr>
+                            <tr v-show="cartItems.length > 0">
+                                <td></td>
+                                <td class="text-right">Total</td>
+                                <td class="text-right">R$ {{Total }}</td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </template>
+                    </v-simple-table>
+                    <div v-show="cartItems.length === 0">
+                        <p>Carrinho está vazio</p>
+                    </div>
                 </div>
                 <div>
                 <v-btn block  @click="sheet = !sheet">Fechar</v-btn>
@@ -109,6 +124,40 @@
                 ]
             }
         },
+
+        computed: {
+            totalItems(){
+                return this.cartItems.reduce((accumulator , item) => {
+                    return accumulator  + item.qty;
+                }, 0);
+            },
+            Total() {
+                let total = 0;
+                this.cartItems.forEach(item => {
+                    total += (item.price * item.qty);
+                });
+                return total;
+            }
+        },
+        methods:{
+            addCart(product){
+                let found = false;
+
+                let itemInCart = this.cartItems.filter(item => item.id===product.id);
+			    let isItemInCart = itemInCart.length > 0;
+
+                if (isItemInCart === false) {
+                    this.cartItems.push(product);
+                } else {
+                    itemInCart[0].qty += product.qty;
+                }
+
+                product.qty = 1;
+            },
+            removeItem(index) {
+                this.cartItems.splice(index, 1)
+            }
+        }
         }
 </script>
 
