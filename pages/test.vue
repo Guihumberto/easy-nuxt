@@ -12,7 +12,7 @@
 
 
         <v-expansion-panel v-for="product in products" :key="product.id">
-          <v-expansion-panel-header>{{ product.title }} - R$ {{ product.price | formatCurrency }}</v-expansion-panel-header>
+          <v-expansion-panel-header>{{ product.title }} <v-spacer></v-spacer> R$ {{ product.price | formatCurrency }}</v-expansion-panel-header>
           <v-expansion-panel-content>
               <div class="d-flex">
                   <div class="mr-5">
