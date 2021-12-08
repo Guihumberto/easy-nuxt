@@ -20,8 +20,12 @@
                   </div>
                   <div>
                       Qtd:
-                      <input v-model="product.qty" type="number" min="1">
-                      <v-btn small @click="addCart(product)" block>Adicionar</v-btn>
+                      <input small v-model="product.qty" type="number" min="1">
+                      <div class="mt-2 d-flex">
+                           <v-btn color="success" small @click="addCart(product)" >Adicionar</v-btn>
+                            <v-btn class="ml-2" small>Detalhes</v-btn>
+                      </div>
+                     
                   </div>
               </div>
               
