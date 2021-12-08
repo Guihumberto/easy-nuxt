@@ -21,14 +21,12 @@
                   <div>
                       Qtd:
                       <input v-model="product.qty" type="number" min="1">
-                      <v-btn @click="addCart(product)" block>Adicionar</v-btn>
+                      <v-btn small @click="addCart(product)" block>Adicionar</v-btn>
                   </div>
               </div>
               
           </v-expansion-panel-content>
         </v-expansion-panel>
-  
-  
 
       </v-expansion-panels>
 
@@ -41,13 +39,13 @@
                 absolute
                 bottom
             >
-                <v-icon small class="ml-2">mdi-cart</v-icon>Carrinho ({{cartItems.length || 0}}) R$ {{Total | formatCurrency}}
+                <v-icon small class="ml-2">mdi-cart</v-icon>Carrinho ({{totalItems}}) R$ {{Total | formatCurrency}}
             </v-btn>
-            <v-bottom-sheet v-model="sheet">
+            <v-bottom-sheet v-model="sheet" >
                 <v-sheet
+                min-width="375"
+                min-height="500"
                 class="text-center"
-                min-height="200px"
-                width="500"
                 >
                 <v-btn
                     class="mt-6"
@@ -59,38 +57,25 @@
                     <v-spacer></v-spacer><v-icon color="red">mdi-close</v-icon>
                 </v-btn>
                 <div class="py-3">
-                    <v-simple-table v-show="cartItems.length > 0">
+
+                    
+
+                    <v-simple-table v-show="cartItems.length > 0" class="table">
                         <template v-slot:default>
-                            <thead>
-                            <tr>
-                                <th class="text-left">
-                                Produto
-                                </th>
-                                <th class="text-left">
-                                Qtd
-                                </th>
-                                <th class="text-left">
-                                Valor
-                                </th>
-                                <th class="text-left">
-                                #
-                                </th>
-                            </tr>
-                            </thead>
                             <tbody>
                             <tr
                                 v-for="item in cartItems"
                                 :key="item.id"
                             >
                                 <td>{{ item.title }}</td>
-                                <td>{{ item.qty }}</td>
-                                <td>{{ item.price }}</td>
+                                <td>{{ item.qty }} und</td>
+                                <td>R$ {{ item.price }}</td>
                                 <td @click="removeItem(item)"><v-icon small color="error">mdi-trash-can</v-icon></td>
                             </tr>
                             <tr v-show="cartItems.length > 0">
                                 <td></td>
-                                <td class="text-right">Total</td>
-                                <td class="text-right">R$ {{Total }}</td>
+                                <td>Total</td>
+                                <td>R$ {{Total }}</td>
                                 <td></td>
                             </tr>
                             </tbody>
@@ -101,7 +86,7 @@
                     </div>
                 </div>
                 <div>
-                <v-btn block  @click="sheet = !sheet">Fechar</v-btn>
+                <v-btn  @click="sheet = !sheet">Fechar</v-btn>
                 </div>
                 </v-sheet>
             </v-bottom-sheet>
@@ -114,6 +99,7 @@
     export default {
         data(){
             return{
+                mobileBreakpoint: 600,
                 sheet: false,
                 cartItems: [],
                 products: [
@@ -149,15 +135,14 @@
                 if (isItemInCart === false) {
                     this.cartItems.push(product);
                 } else {
-                    itemInCart[0].qty += product.qty;
+                    itemInCart[0].qty ++;
                 }
-
-                product.qty = 1;
             },
+
             removeItem(index) {
                 this.cartItems.splice(index, 1)
             }
         }
-        }
+    }
 </script>
 
