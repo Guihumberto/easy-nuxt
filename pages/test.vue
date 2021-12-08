@@ -20,7 +20,7 @@
                   </div>
                   <div>
                       Qtd:
-                      <input small v-model="product.qty" type="number" min="1">
+                      <input v-model="product.qty" type="number" min="1">
                       <div class="mt-2 d-flex">
                            <v-btn color="success" small @click="addCart(product)" >Adicionar</v-btn>
                             <v-btn class="ml-2" small>Detalhes</v-btn>
@@ -85,12 +85,12 @@
                             </tbody>
                         </template>
                     </v-simple-table>
+                    
+                    <v-btn color="primary" class="mt-5">Fazer Pedido</v-btn>
+
                     <div v-show="cartItems.length === 0">
                         <p>Carrinho está vazio</p>
                     </div>
-                </div>
-                <div>
-                <v-btn  @click="sheet = !sheet">Fechar</v-btn>
                 </div>
                 </v-sheet>
             </v-bottom-sheet>
