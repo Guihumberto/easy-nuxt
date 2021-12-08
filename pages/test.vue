@@ -2,7 +2,7 @@
     <div id="app">
         <v-app id="inspire">
             <div class="text-center">
-                <h1 class="mb-5">Cardápio</h1>
+              <v-icon>mdi-silverware </v-icon>  <h1 class="mb-5">Cardápio</h1>
     
     <v-expansion-panels
         v-model="panel"
@@ -57,6 +57,7 @@
                     @click="sheet = !sheet"
                     icon
                 >
+                    <v-icon small class="ml-2">mdi-cart</v-icon>
                     Carrinho
                     <v-spacer></v-spacer><v-icon color="red">mdi-close</v-icon>
                 </v-btn>
@@ -79,14 +80,17 @@
                             <tr v-show="cartItems.length > 0">
                                 <td></td>
                                 <td>Total</td>
-                                <td>R$ {{Total }}</td>
+                                <td>R$ {{Total | formatCurrency }}</td>
                                 <td></td>
                             </tr>
                             </tbody>
                         </template>
+
+                        <v-btn color="primary" class="mt-5">Fazer Pedido</v-btn>
+
                     </v-simple-table>
                     
-                    <v-btn color="primary" class="mt-5">Fazer Pedido</v-btn>
+                    
 
                     <div v-show="cartItems.length === 0">
                         <p>Carrinho está vazio</p>
