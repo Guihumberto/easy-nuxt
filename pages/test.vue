@@ -45,7 +45,7 @@
             >
                 <v-icon small class="ml-2">mdi-cart</v-icon>Carrinho ({{totalItems}}) R$ {{Total | formatCurrency}}
             </v-btn>
-            <v-bottom-sheet v-model="sheet" >
+            <v-bottom-sheet v-model="sheet" persistent>
                 <v-sheet
                 min-width="375"
                 min-height="500"
