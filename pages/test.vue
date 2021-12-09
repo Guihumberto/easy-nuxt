@@ -2,7 +2,15 @@
     <div id="app">
         <v-app id="inspire">
             <div class="text-center">
-              <v-icon>mdi-silverware </v-icon>  <h1 class="mb-5">Cardápio</h1>
+              <v-alert
+                border="left"
+                colored-border
+                color="green"
+                elevation="2"
+                class="my-5 mr-2"
+            ><v-icon>mdi-silverware </v-icon> Cardápio
+               
+            </v-alert>
     
             <v-expansion-panels
                 v-model="panel"
@@ -17,8 +25,12 @@
                             <v-img contain width="100" :src="product.img"></v-img>
                         </div>
                         <div>
-                            <forms-Counter :qty="product.qty"/>
-                            <input v-model="product.qty" type="number" min="1">
+                            <div class="d-flex">
+                                <v-btn fab class="my-3 mr-2" x-small color="error" @click="decrementar(product)"> <v-icon>mdi-minus</v-icon></v-btn>
+                                <v-btn fab class="my-3 mr-5" x-small color="success" @click="incrementar(product)"><v-icon>mdi-plus</v-icon></v-btn>
+                                <div class="mt-4">Qtd: {{ product.qty }}</div>
+                            </div>
+
                             <div class="mt-2 d-flex">
                                 <v-btn color="success" class="mr-2" small @click="addCart(product)" >Adicionar</v-btn>
                                 <detailProduct :product="product" />
@@ -142,6 +154,18 @@
                 } else {
                     itemInCart[0].qty ++;
                 }
+            },
+
+            decrementar(product){
+                if(product.qty === 0){
+                    this.$store.dispatch("snackbars/setSnack", {text:'Impossível quantidade inferior a 0(zero)', color:'error'})
+                } else {
+                    product.qty --
+                }
+                
+            },
+            incrementar(product){
+                product.qty ++
             },
 
             removeItem(index) {
