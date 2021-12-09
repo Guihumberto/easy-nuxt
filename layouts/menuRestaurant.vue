@@ -23,7 +23,7 @@
      </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app :clipped-left="$vuetify.breakpoint.lgAndUp">
+    <v-app-bar app :clipped-left="$vuetify.breakpoint.lgAndUp" color="green" dark>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title v-text="landingPage.header.title"></v-toolbar-title>
       <v-spacer></v-spacer>
@@ -33,7 +33,7 @@
         offset-y
       >
         <template v-slot:activator="{on}">
-          <v-btn v-on="on" color="primary" icon>
+          <v-btn v-on="on"  icon>
             <v-icon>mdi-magnify</v-icon>
           </v-btn>
         </template>
@@ -84,8 +84,8 @@
         </v-menu>
       </div>
       <div v-else>
-        <v-btn small icon color="primary" @click="dialog = true; type='forms-login'"><v-icon>mdi-login</v-icon></v-btn>
-        <v-btn small icon color="primary" @click="dialog = true; type='forms-register'"><v-icon>mdi-account-plus</v-icon></v-btn>
+        <v-btn small icon @click="dialog = true; type='forms-login'"><v-icon>mdi-login</v-icon></v-btn>
+        <v-btn small icon @click="dialog = true; type='forms-register'"><v-icon>mdi-account-plus</v-icon></v-btn>
       </div>
 
     </v-app-bar>
@@ -106,22 +106,28 @@
         </v-btn>
       </v-snackbar>
     </v-main>
+    <v-bottom-navigation
+        app
+        fixed
+        hide-on-scroll
+        horizontal
+        scroll-target="#hide-on-scroll-example"
+      >
+        <v-btn
+          color="green accent-4"
+          text
+          v-for="menuNav in menuNavs" :key="menuNav.title"
+          :to="menuNav.url"
+        >
+          <span>{{menuNav.title}}</span>
+  
+          <v-icon>{{menuNav.icon}}</v-icon>
+        </v-btn>
+    </v-bottom-navigation>
 
     <v-dialog v-model="dialog" max-width="600">
       <component :is="type" @close="dialog = $event"/>
     </v-dialog>
-
-    <v-footer padless>
-      <v-row justify="center" no-gutters>
-        <v-col class="text-center primary--text" cols="12">
-          <img src="@/assets/img/logo.png" />
-        </v-col>
-        <v-btn color="primary" small icon  target="_blank" href="https://www.instagram.com/easyboteco/"><v-icon>mdi-instagram</v-icon></v-btn>
-        <v-btn color="primary" small icon  target="_blank" href="https://www.instagram.com/easyboteco/"><v-icon>mdi-whatsapp</v-icon></v-btn>
-        <v-btn color="primary" small icon  to="/about"><v-icon>mdi-email</v-icon></v-btn>
-        <v-col class="text-center primary--text" cols="12">&copy; {{new Date().getFullYear()}} - Grupo Easy</v-col>
-      </v-row>
-    </v-footer>
 
   </v-app>
 </template>
@@ -144,8 +150,13 @@ import {mapGetters} from 'vuex'
         links: [
           { text: 'Home', icon: 'mdi-home', url:'/'},
           { text: 'Cardápio', icon: 'mdi-food-fork-drink', url:'/menu'},
-          { text: 'Delivery', icon: 'mdi-food-fork-drink', url:'/test'},
+          { text: 'Delivery', icon: 'mdi-food-fork-drink', url:'/menuDelivery'},
           { text: 'Sobre', icon: 'mdi-help-box', url:'/about'}
+        ],
+        menuNavs: [
+          { title: 'Home', icon: 'mdi-home', url:'/'},
+          { title: 'Contato', icon: 'mdi-whatsapp', url:'/'},
+          { title: 'Instagram', icon: 'mdi-instagram', url:'/'},
         ]
       }
     },

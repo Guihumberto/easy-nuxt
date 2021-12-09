@@ -4,47 +4,43 @@
             <div class="text-center">
               <v-icon>mdi-silverware </v-icon>  <h1 class="mb-5">Cardápio</h1>
     
-    <v-expansion-panels
-        v-model="panel"
-        :readonly="readonly"
-        multiple
-      >
-
-
-        <v-expansion-panel v-for="product in products" :key="product.id">
-          <v-expansion-panel-header>{{ product.title }} <v-spacer></v-spacer> R$ {{ product.price | formatCurrency }}</v-expansion-panel-header>
-          <v-expansion-panel-content>
-              <div class="d-flex">
-                  <div class="mr-5">
-                      <v-img contain width="100" :src="product.img"></v-img>
-                  </div>
-                  <div>
-                      Qtd:
-                      <input v-model="product.qty" type="number" min="1">
-                      <div class="mt-2 d-flex">
-                           <v-btn color="success" small @click="addCart(product)" >Adicionar</v-btn>
-                            <v-btn class="ml-2" small>Detalhes</v-btn>
-                      </div>
-                     
-                  </div>
-              </div>
-              
-          </v-expansion-panel-content>
-        </v-expansion-panel>
-
-      </v-expansion-panels>
-
-            <v-btn
-                color="blue"
-                dark
-                @click="sheet = !sheet"
-                block
-                fixed
-                absolute
-                bottom
+            <v-expansion-panels
+                v-model="panel"
+                :readonly="readonly"
+                multiple
             >
-                <v-icon small class="ml-2">mdi-cart</v-icon>Carrinho ({{totalItems}}) R$ {{Total | formatCurrency}}
-            </v-btn>
+                <v-expansion-panel v-for="product in products" :key="product.id">
+                <v-expansion-panel-header>{{ product.title }} <v-spacer></v-spacer> R$ {{ product.price | formatCurrency }}</v-expansion-panel-header>
+                <v-expansion-panel-content>
+                    <div class="d-flex">
+                        <div class="mr-5">
+                            <v-img contain width="100" :src="product.img"></v-img>
+                        </div>
+                        <div>
+                            <forms-Counter :qty="product.qty"/>
+                            <input v-model="product.qty" type="number" min="1">
+                            <div class="mt-2 d-flex">
+                                <v-btn color="success" class="mr-2" small @click="addCart(product)" >Adicionar</v-btn>
+                                <detailProduct :product="product" />
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                </v-expansion-panel-content>
+                </v-expansion-panel>
+
+            </v-expansion-panels>
+            <v-footer app fixed padless>
+                <v-btn
+                    color="blue"
+                    dark
+                    @click="sheet = !sheet"
+                    block
+                >
+                    <v-icon small class="ml-2">mdi-cart</v-icon>Carrinho ({{totalItems}}) R$ {{Total | formatCurrency}}
+                </v-btn>
+            </v-footer>
             <v-bottom-sheet v-model="sheet" persistent>
                 <v-sheet
                 min-width="375"
@@ -105,6 +101,7 @@
 
 <script>
     export default {
+        layout: "menuRestaurant",
         data(){
             return{
                 mobileBreakpoint: 600,
