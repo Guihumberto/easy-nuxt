@@ -71,34 +71,34 @@
                 </v-btn>
                 <div class="py-3">
 
-                    
+                    <div v-show="cartItems.length > 0">
+                        <v-simple-table>
+                            <template v-slot:default>
+                                <tbody>
+                                <tr
+                                    v-for="item in cartItems"
+                                    :key="item.id"
+                                >
+                                    <td>{{ item.title }}</td>
+                                    <td>{{ item.qty }} und</td>
+                                    <td>R$ {{ item.price }}</td>
+                                    <td @click="removeItem(item)"><v-icon small color="error">mdi-trash-can</v-icon></td>
+                                </tr>
+                                <tr v-show="cartItems.length > 0">
+                                    <td></td>
+                                    <td>Total</td>
+                                    <td>R$ {{Total | formatCurrency }}</td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                                
+                                
+                            </template>
 
-                    <v-simple-table v-show="cartItems.length > 0" class="table">
-                        <template v-slot:default>
-                            <tbody>
-                            <tr
-                                v-for="item in cartItems"
-                                :key="item.id"
-                            >
-                                <td>{{ item.title }}</td>
-                                <td>{{ item.qty }} und</td>
-                                <td>R$ {{ item.price }}</td>
-                                <td @click="removeItem(item)"><v-icon small color="error">mdi-trash-can</v-icon></td>
-                            </tr>
-                            <tr v-show="cartItems.length > 0">
-                                <td></td>
-                                <td>Total</td>
-                                <td>R$ {{Total | formatCurrency }}</td>
-                                <td></td>
-                            </tr>
-                            </tbody>
-                        </template>
-
-                        <v-btn color="primary" class="mt-5">Fazer Pedido</v-btn>
-
-                    </v-simple-table>
-                    
-                    
+                        </v-simple-table>
+                        <v-btn small color="primary" class="mt-5"><v-icon small class="mr-3">mdi-silverware-fork-knife</v-icon>
+                            Fazer Pedido</v-btn>
+                    </div>
 
                     <div v-show="cartItems.length === 0">
                         <p>Carrinho está vazio</p>
