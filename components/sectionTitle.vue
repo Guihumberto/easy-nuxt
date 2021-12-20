@@ -3,7 +3,7 @@
         color="#385F73"
         dark
     >
-        <div>
+        <div class="pa-5">
             <img src="@/assets/img/logo.png" />
         </div>
     
