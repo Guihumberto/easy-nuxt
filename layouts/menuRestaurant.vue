@@ -150,7 +150,8 @@ import {mapGetters} from 'vuex'
         links: [
           { text: 'Home', icon: 'mdi-home', url:'/'},
           { text: 'Cardápio', icon: 'mdi-food-fork-drink', url:'/menu'},
-          { text: 'Delivery', icon: 'mdi-food-fork-drink', url:'/menuDelivery'},
+          { text: 'Delivery', icon: 'mdi-moped-outline', url:'/test'},
+          { text: 'Cadastrar', icon: 'mdi-hamburger-plus', url:'/addProducts'},
           { text: 'Sobre', icon: 'mdi-help-box', url:'/about'}
         ],
         menuNavs: [

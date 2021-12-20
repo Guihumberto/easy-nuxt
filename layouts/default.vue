@@ -58,7 +58,7 @@
           offset-y
           >
           <template v-slot:activator="{on}">
-            <v-btn v-on="on" icon>
+            <v-btn small v-on="on" icon>
               <v-avatar class="secondary">
                 <span class="white--text headline"> {{$auth.user.username[0]}} </span>
               </v-avatar>
@@ -144,7 +144,8 @@ import {mapGetters} from 'vuex'
         links: [
           { text: 'Home', icon: 'mdi-home', url:'/'},
           { text: 'Cardápio', icon: 'mdi-food-fork-drink', url:'/menu'},
-          { text: 'Delivery', icon: 'mdi-food-fork-drink', url:'/test'},
+          { text: 'Delivery', icon: 'mdi-moped-outline', url:'/test'},
+          { text: 'Cadastrar', icon: 'mdi-hamburger-plus', url:'/addProducts'},
           { text: 'Sobre', icon: 'mdi-help-box', url:'/about'}
         ]
       }

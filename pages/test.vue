@@ -96,7 +96,7 @@
                             </template>
 
                         </v-simple-table>
-                        <v-btn small color="primary" class="mt-5"><v-icon small class="mr-3">mdi-silverware-fork-knife</v-icon>
+                        <v-btn @click="checkIn" small color="primary" class="mt-5"><v-icon small class="mr-3">mdi-silverware-fork-knife</v-icon>
                             Fazer Pedido</v-btn>
                     </div>
 
@@ -170,6 +170,13 @@
 
             removeItem(index) {
                 this.cartItems.splice(index, 1)
+            },
+            checkIn(){
+                if(this.$auth.loggedIn){
+                    console.log("esta logado")
+                } else {
+                    this.$store.dispatch("snackbars/setSnack", {text:'Faça o Login ou crie sua conta', color:'error'})
+                }
             }
         }
     }
