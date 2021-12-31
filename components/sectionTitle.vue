@@ -4,16 +4,25 @@
         dark
     >
         <div class="pa-5">
-            <img src="@/assets/img/logo.png" />
+            <img class="mx-7" src="@/assets/img/logo.png" />
+            <h1>{{sectionTitle.header.title}}</h1>
         </div>
-    
-        <v-card-subtitle>Faça seus pedidos e acompanhe nossas promoções pela Easy Express, o site da Easy Conveniência. Disponível para retirada e entregas.</v-card-subtitle>
-
+        <v-card-subtitle>{{sectionTitle.header.description}}</v-card-subtitle>
         <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn text to="/menu">
+            <v-btn outlined text to="/menu">
                 Cardápio
             </v-btn>
         </v-card-actions>
     </v-card>
 </template>
+
+<script>
+    export default {
+        props: {
+            sectionTitle: {
+                requerid:true
+            }
+        }
+    }
+</script>

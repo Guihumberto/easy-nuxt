@@ -1,13 +1,12 @@
-export const strict = false
 
 export const state = () => ({
     counter:0,
-    landingPage:null
+    categories:[]
 })
 
 export const getters = {
-    readLandingPage(state){
-        return state.landingPage
+    readCategories(state){
+        return state.categories
     },
     readCounter(state){
         return state.counter
@@ -15,8 +14,8 @@ export const getters = {
 }
 
 export const mutations = {
-    addLandingPage(state, payload){
-        state.landingPage = payload
+    addCategories(state, payload){
+        state.categories = payload
     },
     increment(state){
         state.counter ++
@@ -24,16 +23,16 @@ export const mutations = {
 }
 
 export const actions = {
-    nuxtServerInit(context){
+    nuxtServerInit({commit}){
         console.log("hola nuxt server")
         return new Promise((resolve, reject) => {
             const client = this.app.apolloProvider.defaultClient
             const query = {
-                query: require("../graphql/landingPage.gql")
+                query: require("../graphql/categories.gql")
             }
     
             client.query(query).then(data => {
-                
+                commit('addCategories', data.data.categories)
                 resolve()
             }).catch(error => {
                 console.log(error)

@@ -1,0 +1,20 @@
+query($slug:String!){
+  products(where:{category:{slug:$slug}}){
+    id
+    name
+    description
+    img
+    qtd
+    acompanhamentos
+    slug
+    type
+    price
+    category{
+      id
+      name
+      slug
+      icon
+      img
+    }
+  }
+}

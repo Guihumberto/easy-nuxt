@@ -13,23 +13,24 @@
             >Detalhes</v-btn>
           </template>
           <template v-slot:default="dialog">
-            <v-card>
-              <v-toolbar color="secondary" dark > {{ product.title }}</v-toolbar>
-              <div class="d-flex pa-2">
-                  <v-img contain width="150" :src="product.img"></v-img>
-                  <div>
-                      <v-card-subtitle>
-                         Acompanhamentos:
-                      </v-card-subtitle>
-                      <v-card-actions>
-                            <v-btn
-                            text
-                            @click="dialog.value = false"
-                            >Fechar</v-btn>
-                      </v-card-actions>
-
-                  </div>
-              </div>
+            <v-card max-width="600">
+                  <v-img contain min-height="":src="product.img"></v-img>
+                    <v-card-title class="mb-2">{{product.name}}
+                      <v-spacer></v-spacer>
+                      R$ {{product.price}}
+                    </v-card-title>
+                    <v-card-subtitle>
+                      {{product.description}} <br>
+                      {{product.acompanhamentos}}
+                    </v-card-subtitle>
+                    <v-card-actions>
+                          <v-btn
+                          outlined
+                          color="error"
+                          text
+                          @click="dialog.value = false"
+                          >Fechar</v-btn>
+                    </v-card-actions>
               
             </v-card>
           </template>

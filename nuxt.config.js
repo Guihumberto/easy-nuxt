@@ -73,13 +73,13 @@ export default {
     }
   },
   axios:{
-    baseURL:'https://easy-strapi-api.herokuapp.com/'
+    baseURL:'https://strapi-final-api.herokuapp.com/'
   },
 
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: 'https://easy-strapi-api.herokuapp.com/graphql',
+        httpEndpoint: 'https://strapi-final-api.herokuapp.com/graphql',
       }
     }
   },

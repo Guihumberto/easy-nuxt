@@ -1,11 +1,11 @@
 <template>
     <v-card>
-        <v-card-title class="secondary--text">{{ now.title }}</v-card-title>
+        <v-card-title class="secondary--text">{{ now.sectionSale.title }}</v-card-title>
         <v-card-text class="black--text">
             <v-row>
                 <v-col xs12 sm12 md6 lg6>
                     <v-img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROkPveEOrFMKXTS5SytrPxLqMaOGH-Fnbqxg&usqp=CAU"
+                        :src="now.sectionSale.product.img"
                         max-height="350"
                     ></v-img>
                 </v-col>
@@ -22,15 +22,12 @@
 
                     <v-divider class="mt-3"></v-divider>
 
-                    <h4 class="body-1">Pack com 6 budweiser longneck por R$20</h4>
-                    <v-html>
-                        6 unidades de budweiser longneck natural para retirada.
-                        Limitado a 10 packs.
-                        acrescente o valor de R$ 5 para levar o pack gelado. 
-                        Corre!!!
-                    </v-html>
+                    <h4 class="body-1">{{now.sectionSale.product.name}} por R$25</h4>
+                    <div>
+                        {{now.sectionSale.product.description}}
+                    </div>
                     <div class="mt-3">
-                        <v-btn color="primary" to="/productSelect">Pedir agora</v-btn>
+                        <v-btn color="primary" to="/orderNow">Pedir agora</v-btn>
                     </div>
                 </v-col>
             </v-row>
@@ -41,8 +38,7 @@
 <script>
     export default {
         props:{
-                now:{ 
-                  
+                now:{     
                     required:true
                 }
     

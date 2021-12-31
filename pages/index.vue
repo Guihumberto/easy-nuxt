@@ -2,13 +2,14 @@
     <v-container>
         <v-row>
             <v-col>
-                <sectionTitle />
+                <sectionTitle :sectionTitle="landingPage"/>
+             
             </v-col>
         </v-row>
         <v-row>
-            <v-col v-for="now in news" :key="now.title">
+            <v-col>
                 <sectionNews 
-                :now="now"
+                :now="landingPage"
                 >
                  </sectionNews>
 
@@ -23,17 +24,42 @@
             </v-col>
         </v-row>
         <menuSingleCard />
+        <footerLinks :categories="categories" />
     </v-container>
 </template>
 
 <script>
+    import gql from 'graphql-tag'
+
     export default {
         middleware:"initData",
-        data(){
-            return{
-                news:[
-                    {title:"Promoção", subtitle:"serve bem 2 pessoas", price: "25", frete: "grátis"},
-                ]
+        apollo: {
+            landingPage: {
+                query: gql`
+                query {
+                    landingPage{
+                        header{
+                            title
+                            subtitle
+                            description
+                        }
+                        sectionSale{
+                        title
+                            product{
+                            name
+                            img
+                            description
+                            }
+                        }
+                    }
+                }
+            `,
+            update: data => data.landingPage
+           }
+        },
+        computed:{
+            categories(){
+               return this.$store.getters.readCategories
             }
         }
     }

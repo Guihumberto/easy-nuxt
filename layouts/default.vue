@@ -6,9 +6,8 @@
       :clipped="$vuetify.breakpoint.lgAndUp"
     >
      <v-list color="primary--text">
-       <v-subheader>Easy Express</v-subheader>
+       <v-subheader v-text="landingPage.header.subtitle"></v-subheader>
        <v-list-item-group
-          v-model="selectedItem"
           color="primary"
         >
         <v-list-item v-for="link in links" :key="link.text" :to="link.url">
@@ -111,18 +110,6 @@
       <component :is="type" @close="dialog = $event"/>
     </v-dialog>
 
-    <v-footer padless>
-      <v-row justify="center" no-gutters>
-        <v-col class="text-center primary--text" cols="12">
-          <img src="@/assets/img/logo.png" />
-        </v-col>
-        <v-btn color="primary" small icon  target="_blank" href="https://www.instagram.com/easyboteco/"><v-icon>mdi-instagram</v-icon></v-btn>
-        <v-btn color="primary" small icon  target="_blank" href="https://www.instagram.com/easyboteco/"><v-icon>mdi-whatsapp</v-icon></v-btn>
-        <v-btn color="primary" small icon  to="/about"><v-icon>mdi-email</v-icon></v-btn>
-        <v-col class="text-center primary--text" cols="12">&copy; {{new Date().getFullYear()}} - Grupo Easy</v-col>
-      </v-row>
-    </v-footer>
-
   </v-app>
 </template>
 
@@ -156,11 +143,9 @@ import {mapGetters} from 'vuex'
           query {
             landingPage{
               header{
-                logo{
-                  name
-                  url
-                }
                 title
+                subtitle
+                description
               }
             }
           }

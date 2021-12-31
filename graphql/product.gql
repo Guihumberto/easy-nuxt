@@ -1,0 +1,19 @@
+query($id:ID!){
+  product(id:$id){
+    id
+    name
+    description
+    img
+    qtd
+    acompanhamentos
+    slug
+    type
+    price
+    category{
+      id
+      name
+      slug
+      icon
+    }
+  }
+}

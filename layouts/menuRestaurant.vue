@@ -8,7 +8,6 @@
      <v-list color="primary--text">
        <v-subheader>Easy Express</v-subheader>
        <v-list-item-group
-          v-model="selectedItem"
           color="primary"
         >
         <v-list-item v-for="link in links" :key="link.text" :to="link.url">
@@ -110,14 +109,13 @@
         app
         fixed
         hide-on-scroll
-        horizontal
         scroll-target="#hide-on-scroll-example"
       >
         <v-btn
           color="green accent-4"
           text
           v-for="menuNav in menuNavs" :key="menuNav.title"
-          :to="menuNav.url"
+          :href="menuNav.url"
         >
           <span>{{menuNav.title}}</span>
   
@@ -156,8 +154,10 @@ import {mapGetters} from 'vuex'
         ],
         menuNavs: [
           { title: 'Home', icon: 'mdi-home', url:'/'},
-          { title: 'Contato', icon: 'mdi-whatsapp', url:'/'},
-          { title: 'Instagram', icon: 'mdi-instagram', url:'/'},
+          { title: 'Contato', icon: 'mdi-whatsapp', url:'https://api.whatsapp.com/send?phone=5598984650786&text=Oi'},
+          { title: 'Instagram', icon: 'mdi-instagram', url:'https://www.instagram.com/easyboteco/'},
+          { title: 'Cardápio', icon: 'mdi-silverware-fork-knife', url:'/menu'},
+          { title: 'Sobre', icon: 'mdi-information-outline', url:'/about'},
         ]
       }
     },
@@ -167,11 +167,9 @@ import {mapGetters} from 'vuex'
           query {
             landingPage{
               header{
-                logo{
-                  name
-                  url
-                }
                 title
+                subtitle
+                description
               }
             }
           }

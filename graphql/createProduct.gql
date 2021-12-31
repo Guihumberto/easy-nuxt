@@ -1,0 +1,28 @@
+mutation (
+  $name:String!
+  $description: String!
+  $img: String!
+  $qtd: Int!
+  $acompanhamentos: String!
+  $type: ENUM_PRODUCT_TYPE!
+  $category: ID!
+){
+  createProduct(
+    input:{
+    data:{
+      name:$name
+      description:$description
+      img:$img
+      qtd:$qtd
+      acompanhamentos:$acompanhamentos
+      type:$type
+      category: $category
+    }
+  }
+  ){
+    product{
+      id
+      name
+    }
+  }
+}

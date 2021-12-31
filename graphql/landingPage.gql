@@ -1,11 +1,15 @@
  query {
             landingPage{
               header{
-                logo{
-                  name
-                  url
-                }
                 title
+                subtitle
+                description
+              }
+              sectionSale{
+                title
+                product{
+                  name
+                }
               }
             }
           }

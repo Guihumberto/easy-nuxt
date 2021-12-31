@@ -1,0 +1,16 @@
+query($id:ID!){
+  addresses(where:{autor:{id:$id}}){
+    id
+    Endereco
+    Numero
+    Bairro
+    Cidade
+    Estado
+    CEP
+    Referencia
+    autor{
+      id
+      username
+    }
+  }
+}

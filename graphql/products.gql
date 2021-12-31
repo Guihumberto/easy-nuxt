@@ -1,0 +1,20 @@
+query{
+  products{
+    id
+    name
+    qtd
+    description
+    img
+    acompanhamentos
+    type
+    slug
+    price
+    category{
+      id
+      name
+      icon
+      description
+      slug
+    }
+  }
+}
