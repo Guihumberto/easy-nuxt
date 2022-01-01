@@ -44,7 +44,7 @@
                     @click="sheet = !sheet"
                     block
                 >
-                    <v-icon small class="mr-2">mdi-cart</v-icon>Carrinho ({{totalItems}}) R$ {{Total | formatCurrency}}
+                    <v-icon small class="mr-2">mdi-cart</v-icon>Enviar Pedido ({{totalItems}}) R$ {{Total | formatCurrency}}
                 </v-btn>
             </v-footer>
 
