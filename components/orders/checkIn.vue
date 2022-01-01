@@ -116,7 +116,6 @@
               </v-col>
             </v-row>
           </v-container>
-          <small>*campos obrigatórios</small>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -129,7 +128,7 @@
           </v-btn>
 
           <orders-checkSend v-if="check" :order="order" :address="address" />
-          <v-btn outlined color="red" type="submit" text v-else>Enviar</v-btn>
+          <v-btn small outlined color="red" type="submit" text v-else>Enviar</v-btn>
 
         </v-card-actions>
         </v-form>

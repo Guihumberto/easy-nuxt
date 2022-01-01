@@ -8,6 +8,7 @@
             <h1>{{sectionTitle.header.title}}</h1>
         </div>
         <v-card-subtitle>{{sectionTitle.header.description}}</v-card-subtitle>
+        <v-card-subtitle>Horário de Funcionamento: Segunda a Domingo, das 10:00hrs à 00hrs.</v-card-subtitle>
         <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn outlined text to="/menu">

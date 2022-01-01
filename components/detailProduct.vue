@@ -10,7 +10,9 @@
               outlined
               v-bind="attrs"
               v-on="on"
-            >Detalhes</v-btn>
+            >
+            <v-icon small>mdi-information-variant</v-icon>
+            info</v-btn>
           </template>
           <template v-slot:default="dialog">
             <v-card max-width="600">

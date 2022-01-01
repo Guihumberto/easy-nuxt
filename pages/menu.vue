@@ -26,6 +26,7 @@
 
 <script>
     export default {
+        layout: "menuRestaurant",
         data(){
             return{
                 selection: "f",

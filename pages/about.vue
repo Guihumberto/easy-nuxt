@@ -130,6 +130,7 @@
 
 <script>
   export default {
+    layout: "menuRestaurant",
     data: () => ({
       cards: ['Today', 'Yesterday'],
       drawer: null,

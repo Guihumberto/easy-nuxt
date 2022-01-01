@@ -17,7 +17,7 @@
                     <v-expansion-panel-content>
                         <div class="d-flex">
                             <div class="mr-5">
-                                <v-img contain width="100" :src="product.img"></v-img>
+                                <v-img class="borderImg" contain width="100" :src="product.img"></v-img>
                             </div>
                             <div>
                                 <div class="d-flex">
@@ -39,7 +39,7 @@
 
             <v-footer app fixed padless>
                 <v-btn
-                    color="blue"
+                    :color="color"
                     dark
                     @click="sheet = !sheet"
                     block
@@ -132,6 +132,14 @@
         return {products}
     },
         computed: {
+            color() {
+                switch (this.cartItems.length) {
+                    case 0:
+                        return 'secondary'
+                    default:
+                        return 'primary'
+                }
+            },
             totalItems(){
                 return this.cartItems.reduce((accumulator , item) => {
                     return accumulator  + item.qtd;
@@ -161,7 +169,10 @@
 
             decrementar(product){
                 if(product.qtd === 0){
-                    this.$store.dispatch("snackbars/setSnack", {text:'Impossível quantidade inferior a 0(zero)', color:'error'})
+                    this.$store.dispatch("snackbars/setSnack", {
+                        text: 'Impossível quantidade inferior a 0(zero)',
+                        color: "error",
+                    });
                 } else {
                     product.qtd --
                 }
@@ -190,6 +201,9 @@
     border: 2px solid #704232 !important;
     }
     .v-expansion-panel{
+        border: 1px solid #BCAAA4 !important;
+    }
+    .borderImg{
         border: 1px solid #BCAAA4 !important;
     }
 </style>

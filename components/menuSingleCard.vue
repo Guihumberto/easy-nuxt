@@ -39,6 +39,7 @@
                         rounded
                         small
                         color="warning"
+                        @click="onsubmit"
                       >
                         encomendar
                       </v-btn>
@@ -49,6 +50,7 @@
                         outlined
                         rounded
                         small
+                        to="/test"
                       >
                         Fazer Pedido
                       </v-btn>
@@ -101,5 +103,12 @@ export default {
       },
     ],
   }),
+   methods: {
+            onsubmit() {
+                const urlApi = /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent) ? "https://api.whatsapp.com/send" : "https://web.whatsapp.com/send" 
+                const texto = "Boa noite, gostaria de fazer um encomenda de uma torta de limão inteira!"
+                window.open(urlApi + "?phone=559884650786&text=" + texto, "_blank")
+            }
+    }
 }
 </script>

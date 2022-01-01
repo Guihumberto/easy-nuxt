@@ -37,12 +37,12 @@
             4.5 (413)
           </div>
         </v-row>
-        <div class="my-4"> <v-chip> Entrega:  {{ menu.frete }} </v-chip></div>  
+        <div class="my-4"> <v-chip> Entrega:  </v-chip></div>  
         <div class="text-subtitle-1">
-          R$25 • {{ menu.qtd }}
+          R$25 • 
         </div>
   
-        <div>Acompanhan arroz e farofa.</div>
+        <div></div>
       </v-card-text>
   
       <v-divider class="mx-4"></v-divider>
@@ -53,7 +53,7 @@
         <v-btn
           color="deep-purple lighten-2"
           text
-          @click="reserve"
+          to="/test"
         >
           Fazer pedidos
         </v-btn>

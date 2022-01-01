@@ -22,7 +22,7 @@ export default {
     methods: {
             onsubmit() {
                 const urlApi = /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent) ? "https://api.whatsapp.com/send" : "https://web.whatsapp.com/send" 
-                const texto = "Boa noite, gostaria de uma informação sobre o meu perdido"
+                const texto = "Boa noite, gostaria de uma informação sobre o meu pedido"
                 window.open(urlApi + "?phone=559884650786&text=" + texto, "_blank")
             }
     }

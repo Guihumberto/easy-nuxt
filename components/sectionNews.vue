@@ -27,7 +27,7 @@
                         {{now.sectionSale.product.description}}
                     </div>
                     <div class="mt-3">
-                        <v-btn color="primary" to="/orderNow">Pedir agora</v-btn>
+                        <v-btn color="primary" to="/test">Pedir agora</v-btn>
                     </div>
                 </v-col>
             </v-row>
