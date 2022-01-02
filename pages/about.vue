@@ -28,6 +28,7 @@
             <v-btn
                 color="orange"
                 text
+                @click="onsubmit"
             >
                 Compartilhe
             </v-btn>
@@ -35,6 +36,7 @@
             <v-btn
                 color="orange"
                 text
+                to="/menu"
             >
                 Cardápio
             </v-btn>
@@ -84,7 +86,7 @@
                                         <v-list-item-title>98  98465-0786</v-list-item-title>
                                     </v-list-item-content>
                                 </v-list-item>
-                                <v-list-item>
+                                <v-list-item @click="whatsapp">
                                     <v-list-item-icon>
                                         <v-icon>mdi-whatsapp</v-icon>
                                     </v-list-item-icon>
@@ -123,6 +125,20 @@
                     </v-card-subtitle>
                 </v-card>
             </v-col>
+            <v-col>
+                <v-card>
+                    <v-card-title>Como chegar</v-card-title>
+                    <v-card-subtitle>
+                        <v-list>
+                            <v-list-item>
+                                <v-list-item-content>
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3985.9649161587395!2d-45.080398885244094!3d-2.518362898164931!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92b34f35479c0ad5%3A0x62bea69343cf5caa!2sEasy%20boteco!5e0!3m2!1spt-BR!2sbr!4v1641127330720!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                </v-list-item-content>
+                            </v-list-item>
+                        </v-list>
+                    </v-card-subtitle>
+                </v-card>
+            </v-col>
         </v-row>
        
       </v-container>
@@ -135,5 +151,17 @@
       cards: ['Today', 'Yesterday'],
       drawer: null,
     }),
+    methods: {
+            onsubmit() {
+                const urlApi = /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent) ? "https://api.whatsapp.com/send" : "https://web.whatsapp.com/send" 
+                const texto = "?text=https://www.easyboteco.com.br"
+                window.open(urlApi + texto, "_blank")
+            },
+            whatsapp() {
+                const urlApi = /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent) ? "https://api.whatsapp.com/send" : "https://web.whatsapp.com/send" 
+                const texto = "Olá, gostaria de uma informação."
+                window.open(urlApi + "?phone=559884650786&text=" + texto, "_blank")
+            }
+    }
   }
 </script>

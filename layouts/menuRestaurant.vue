@@ -115,7 +115,7 @@
           color="green accent-4"
           text
           v-for="menuNav in menuNavs" :key="menuNav.title"
-          :href="menuNav.url"
+          :to="menuNav.url"
         >
           <span>{{menuNav.title}}</span>
   
@@ -154,8 +154,7 @@ import {mapGetters} from 'vuex'
         ],
         menuNavs: [
           { title: 'Home', icon: 'mdi-home', url:'/'},
-          { title: 'Contato', icon: 'mdi-whatsapp', url:'https://api.whatsapp.com/send?phone=5598984650786&text=Oi'},
-          { title: 'Instagram', icon: 'mdi-instagram', url:'https://www.instagram.com/easyboteco/'},
+          { title: 'Delivery', icon: 'mdi-moped-outline', url:'/test'},
           { title: 'Cardápio', icon: 'mdi-silverware-fork-knife', url:'/menu'},
           { title: 'Sobre', icon: 'mdi-information-outline', url:'/about'},
         ]

@@ -39,10 +39,10 @@
         </v-row>
         <div class="my-4"> <v-chip> Entrega:  </v-chip></div>  
         <div class="text-subtitle-1">
-          R$25 • 
+          R${{ menu.price }}
         </div>
   
-        <div></div>
+        <div>{{ menu.description }}</div>
       </v-card-text>
   
       <v-divider class="mx-4"></v-divider>
