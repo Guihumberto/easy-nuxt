@@ -127,7 +127,7 @@
             </v-col>
             <v-col>
                 <v-card>
-                    <v-card-title>Como chegar</v-card-title>
+                    <v-card-title>Como chegar?</v-card-title>
                     <v-card-subtitle>
                         <v-list>
                             <v-list-item>
