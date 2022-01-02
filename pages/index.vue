@@ -3,7 +3,11 @@
         <v-row>
             <v-col>
                 <sectionTitle :sectionTitle="landingPage"/>
-             
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col>
+                <section-fds :now="landingPage" />
             </v-col>
         </v-row>
         <v-row>

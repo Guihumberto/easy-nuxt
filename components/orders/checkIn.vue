@@ -45,6 +45,7 @@
                 <v-text-field
                   label="Telefone"
                   hint="(98)9899-9999"
+                  v-mask="'(##)#####-####'"
                   dense
                   v-model="address.phone"
                 ></v-text-field>
@@ -139,6 +140,7 @@
 
 <script>
 export default {
+
     data: () => ({
       check: false,
       dialog: false,
