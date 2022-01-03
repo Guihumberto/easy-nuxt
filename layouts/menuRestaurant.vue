@@ -23,6 +23,12 @@
     </v-navigation-drawer>
 
     <v-app-bar app :clipped-left="$vuetify.breakpoint.lgAndUp" color="green" dark>
+      <template v-slot:img="{ props }">
+        <v-img
+          v-bind="props"
+          gradient="to top right, rgba(55,236,186,.7), rgba(25,32,72,.7)"
+        ></v-img>
+      </template>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title v-text="landingPage.header.title"></v-toolbar-title>
       <v-spacer></v-spacer>
