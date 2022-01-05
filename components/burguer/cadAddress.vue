@@ -103,7 +103,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <BackBtn />
+          <v-btn small outlined color="success" @click="voltar">Voltar</v-btn>
 
           <orders-checkSend v-if="check" :order="order" :address="address" />
           <v-btn small color="success" type="submit" v-else>Enviar</v-btn>
@@ -145,6 +145,9 @@ export default {
         if (this.$refs.form.validate()) {
            this.$emit('dadosEntrega', this.address)
         }
+      },
+      voltar(event){
+        this.$emit('dadosAdicionais', false)
       }
     }
 }

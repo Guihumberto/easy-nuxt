@@ -248,7 +248,11 @@
         <v-list>
           <template v-for="i in orders"> 
           <v-list-item :key="i.id">
-            <div class="pedidoCube">{{i}}</div>
+            <div class="pedidoCube">
+              <p class="text-justify">
+              {{i.id}} - {{i.name}} ({{i.carne2}}), pão {{i.bread}} com queijo {{i.cheese}} e molho {{i.sauce}}. Salada {{i.salad}} e Adicionais {{i.add}} Observação: {{i.obs}}
+              </p>
+            </div>
           </v-list-item>
           </template>
         </v-list>
@@ -280,7 +284,7 @@
                     meatAmunt: false,
                     add: [],
                     obs: "",
-                    price: 15
+                    price: 0
                 },
                 show: true,
                 hints: true,
@@ -293,12 +297,16 @@
             let total = 0
             total += this.order.price
             switch(this.order.meatAmunt){
+              case '180g':
+                total+= 15
+                break;
+
               case '200g':
-                total+= 5
+                total+= 18
                 break;
               
               case '220g':
-                total+= 8
+                total+= 22
                 break;
 
               default:
@@ -334,7 +342,8 @@
             onsubmit(product){
                 if (this.$refs.form.validate()) {
                     product.id++
-                    this.orders.push(`${product.id} - Burguer carne ${product.meatAmunt} (${product.meatSpot}), pão ${product.bread}, queijo ${product.cheese} e com molho ${product.sauce}, salada ${product.salad} e adicionais de ${product.add}. Obs: ${product.obs} R$${this.totalPrice}`)
+                    let burguer = {id: product.id, qtd:1, name:`Burguer de ${product.meatAmunt}`, carne2: product.meatSpot, bread: product.bread, cheese: product.cheese, sauce: product.sauce, salad: product.salad, add: product.add, obs: product.obs, price: this.totalPrice}
+                    this.orders.push(burguer)
                     this.show = false
                 }
             },
