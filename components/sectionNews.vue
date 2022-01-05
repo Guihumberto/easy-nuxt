@@ -22,7 +22,7 @@
 
                     <v-divider class="mt-3"></v-divider>
 
-                    <h4 class="body-1">{{now.sectionSale.product.name}} por R$25</h4>
+                    <h4 class="body-1">{{now.sectionSale.product.name}} por R$ 25,00</h4>
                     <div>
                         {{now.sectionSale.product.description}}
                     </div>
