@@ -16,7 +16,7 @@
           </template>
           <template v-slot:default="dialog">
             <v-card max-width="600">
-                  <v-img contain min-height="":src="product.img"></v-img>
+                  <v-img contain :src="product.img"></v-img>
                     <v-card-title class="mb-2">{{product.name}}
                       <v-spacer></v-spacer>
                       R$ {{product.price}}

@@ -8,7 +8,7 @@
           <v-btn
             icon
             dark
-            @click="dialog = false"
+            to="/mountBurguer"
           >
             <v-icon>mdi-close</v-icon>
           </v-btn>
@@ -35,22 +35,12 @@
             <v-list-item-content>
               <v-list-item-title class="text-justify"><b>Pedido</b></v-list-item-title>
             <v-simple-table>
-                <div>
-            <span v-if="order.bread">Pão {{order.bread}}</span>
-            <span v-if="order.cheese">, com queijo {{order.cheese}}</span>
-            <span v-if="order.salad.length">, com 
-              <i v-for="item in order.salad" :key="item">{{item}}, </i></span>
-            <span v-if="order.sauce">e molho de {{order.sauce}}</span>
-          </div>
-          <div>
-            <span v-if="order.meatSpot">A carne vai {{order.meatSpot}}</span>
-            <span v-if="order.meatAmunt">e com {{order.meatAmunt}}</span>
-            <span v-if="order.add.length">, com os seguintes adicionais 
-              <i v-for="item in order.add" :key="item">{{item}}, </i>
-            </span>
-          <br> 
-            <span v-if="order.obs">Obs: {{order.obs}}</span>
-          </div>
+                <v-list>
+                  <v-list-item v-for="item in order">
+                      Pão {{item.bread}} com queijo {{item.cheese}}, Carne com {{item.meatAmunt}} ({{item.meatSpot}}). Molho {{item.sauce}},
+                      Salada com {{item.salad}} e com Adicional de {{item.add}}
+                  </v-list-item>
+                </v-list>
             </v-simple-table>
             </v-list-item-content>
           </v-list-item>
@@ -142,13 +132,13 @@
             //     });
             //     return total;
             // },
-            // orderss(){
-            //   let pedido = []
-            //   this.order.forEach(function(i){
-            //       pedido += `-${i.name} - qtd(${i.qtd}) \n`
-            //   })
-            //   return pedido
-            // }
+            orderss(){
+              let pedido = []
+              this.order.forEach(function(i){
+                  pedido += `1 Burguer: pão ${i.bread}, queijo ${i.cheese}, salada: ${i.salad}, adicionais ${i.add}, carne de ${i.meatAmunt} e ${i.meatSpot}, com molho ${i.sauce} \n`
+              })
+              return pedido
+            }
     
     },
     methods: {
@@ -156,12 +146,12 @@
               if (this.$refs.form.validate()) {
                 let novo = this.orderss
                 const urlApi = /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent) ? "https://api.whatsapp.com/send" : "https://web.whatsapp.com/send" 
-                const somaTotal = this.Total
+                const somaTotal = 25
                 const troco = `Troco para R$${this.pay.troco}`
                 const atexto = "*Pedido*: \n"+ novo +"====================\n*Valor Total* R$" + somaTotal + " \n *Pagamento*: " + this.pay.method +"\n" + troco + " \n ====================\n *Nome*: " + this.address.name + " \n *Endereço*: "+ this.address.endereco +", Nro: " + this.address.nro + ", Bairro: " + this.address.bairro + "\n Ponto de Referência: "+ this.address.obs +"\n=====================";
                 const texto = window.encodeURIComponent(atexto);
                 window.open(urlApi + "?phone=" + this.phone + "&text=" + texto, "_blank")
-                this.$router.push('confirmOrder')
+                //this.$router.push('confirmOrder')
               }
             }
     }

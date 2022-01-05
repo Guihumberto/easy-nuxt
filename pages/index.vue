@@ -36,31 +36,53 @@
     import gql from 'graphql-tag'
 
     export default {
-        middleware:"initData",
-        apollo: {
-            landingPage: {
-                query: gql`
-                query {
-                    landingPage{
-                        header{
-                            title
-                            subtitle
-                            description
-                        }
-                        sectionSale{
-                        title
-                            product{
-                            name
-                            img
-                            description
-                            }
-                        }
-                    }
-                }
-            `,
-            update: data => data.landingPage
-           }
+        data(){
+            return{
+                landingPage: {
+                       header: {
+                             title: "Easy Boteco",
+                             subtitle: "Easy Express",
+                             description: `Faça seus pedidos e acompanhe nossas promoções pela Easy Express, o site da <b>Easy Conveniência.<b> <br>
+                                            Disponível para retirada e  entregas.
+                                            <br><br>
+                                            Horário de Funcionamento: Segunda a Domingo, das 10:00hrs às 23hrs.`
+                         },
+                         sectionSale:{
+                             title: "Promoção",
+                             product:{
+                                name: "Feijoada",
+                                img: "https://media.istockphoto.com/photos/feijoada-a-typical-brazilian-food-picture-id1313384844?b=1&k=20&m=1313384844&s=170667a&w=0&h=nzar6kVi6gG-iHPXo1cc82tBb-ilbQ-gmpLRgbon9eI=",
+                                description: "Feijoada para 2 (duas) pessoas. Acompanha arroz, farofa ou farinha e limão."
+                                }
+                         }
+                     }
+            }
         },
+        middleware:"initData",
+        // apollo: {
+        //     landingPage: {
+        //         query: gql`
+        //         query {
+        //             landingPage{
+        //                 header{
+        //                     title
+        //                     subtitle
+        //                     description
+        //                 }
+        //                 sectionSale{
+        //                 title
+        //                     product{
+        //                     name
+        //                     img
+        //                     description
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //     `,
+        //     update: data => data.landingPage
+        //    }
+        // },
         computed:{
             categories(){
                return this.$store.getters.readCategories

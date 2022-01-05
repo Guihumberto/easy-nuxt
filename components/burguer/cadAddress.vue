@@ -103,16 +103,10 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn
-            color="blue darken-1"
-            text
-            @click="dialog = false"
-          >
-            Cancelar
-          </v-btn>
+          <BackBtn />
 
           <orders-checkSend v-if="check" :order="order" :address="address" />
-          <v-btn small outlined color="red" type="submit" text v-else>Enviar</v-btn>
+          <v-btn small color="success" type="submit" v-else>Enviar</v-btn>
 
         </v-card-actions>
         </v-form>

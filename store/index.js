@@ -22,27 +22,27 @@ export const mutations = {
     }
 }
 
-export const actions = {
-    nuxtServerInit({commit}){
-        console.log("hola nuxt server")
-        return new Promise((resolve, reject) => {
-            const client = this.app.apolloProvider.defaultClient
-            const query = {
-                query: require("../graphql/categories.gql")
-            }
+// export const actions = {
+//     nuxtServerInit({commit}){
+//         console.log("hola nuxt server")
+//         return new Promise((resolve, reject) => {
+//             const client = this.app.apolloProvider.defaultClient
+//             const query = {
+//                 query: require("../graphql/categories.gql")
+//             }
     
-            client.query(query).then(data => {
-                commit('addCategories', data.data.categories)
-                resolve()
-            }).catch(error => {
-                console.log(error)
-                reject()
-            })
-        })
-    },
-    increment(context){
-        setTimeout(()=>{
-            context.commit("increment")
-        }, 1000)
-    }
-}
+//             client.query(query).then(data => {
+//                 commit('addCategories', data.data.categories)
+//                 resolve()
+//             }).catch(error => {
+//                 console.log(error)
+//                 reject()
+//             })
+//         })
+//     },
+//     increment(context){
+//         setTimeout(()=>{
+//             context.commit("increment")
+//         }, 1000)
+//     }
+// }

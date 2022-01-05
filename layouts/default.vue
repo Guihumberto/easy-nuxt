@@ -121,6 +121,13 @@ import {mapGetters} from 'vuex'
    // middleware:"initData",
     data(){
       return{
+        landingPage: {
+          header: {
+            title: "Easy Boteco",
+            subtitle: "Easy Express",
+
+          }
+        },
         drawer: false,
         search: false,
         findProduct: '',
@@ -132,27 +139,28 @@ import {mapGetters} from 'vuex'
           { text: 'Home', icon: 'mdi-home', url:'/'},
           { text: 'Cardápio', icon: 'mdi-food-fork-drink', url:'/menu'},
           { text: 'Delivery', icon: 'mdi-moped-outline', url:'/test'},
+          { text: 'Hamburguer', icon: 'mdi-hamburger', url:'/burguer'},
           //{ text: 'Cadastrar', icon: 'mdi-hamburger-plus', url:'/addProducts'},
           { text: 'Sobre', icon: 'mdi-help-box', url:'/about'}
         ]
       }
     },
-    apollo: {
-      landingPage: {
-        query: gql`
-          query {
-            landingPage{
-              header{
-                title
-                subtitle
-                description
-              }
-            }
-          }
-        `,
-        update: data => data.landingPage
-      }
-    },
+    // apollo: {
+    //   landingPage: {
+    //     query: gql`
+    //       query {
+    //         landingPage{
+    //           header{
+    //             title
+    //             subtitle
+    //             description
+    //           }
+    //         }
+    //       }
+    //     `,
+    //     update: data => data.landingPage
+    //   }
+    // },
     computed:{
       ...mapGetters({
         snacks: "snackbars/readSnackbars"

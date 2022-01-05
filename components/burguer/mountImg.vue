@@ -26,3 +26,15 @@
     </v-card-actions>
     </v-card>
 </template>
+
+<script>
+export default {
+    methods: {
+            onsubmit() {
+                const urlApi = /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent) ? "https://api.whatsapp.com/send" : "https://web.whatsapp.com/send" 
+                const texto = "?text=https://www.easyboteco.com.br"
+                window.open(urlApi + texto, "_blank")
+            },
+    }
+}
+</script>

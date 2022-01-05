@@ -35,6 +35,28 @@
                         </div>  
                     </v-expansion-panel-content>
                 </v-expansion-panel>
+                <v-expansion-panel>
+                    <v-expansion-panel-header>{{burguer.name}}<v-spacer></v-spacer> a partir de R$ {{burguer.price | formatCurrency}}</v-expansion-panel-header>
+                    <v-expansion-panel-content>
+                        <div class="d-flex">
+                            <div class="mr-5">
+                                <v-img class="borderImg" contain width="100" :src="burguer.img"></v-img>
+                            </div>
+                            <div>
+                                <div class="d-flex">
+                                    <p>Monte seu burguer do seu jeito</p>
+                                    <div class="mt-4"></div>
+                                </div>
+
+                                <div class="mt-2 d-flex">
+                                    <v-btn color="success" class="mr-2" small to="/burguer" >Montar Burguer</v-btn>
+                                    <detailProduct :product="burguer" />
+                                </div>
+                                
+                            </div>
+                        </div>  
+                    </v-expansion-panel-content>
+                </v-expansion-panel>
             </v-expansion-panels>
 
             <v-footer app fixed padless>
@@ -118,6 +140,12 @@
                 mobileBreakpoint: 600,
                 sheet: false,
                 cartItems: [],
+                burguer:{
+                    name: "Hamburguer",
+                    img: "https://media.istockphoto.com/photos/hamburger-with-cheese-and-french-fries-picture-id1188412964?k=20&m=1188412964&s=612x612&w=0&h=Ow-uMeygg90_1sxoCz-vh60SQDssmjP06uGXcZ2MzPY=",
+                    price: 15,
+                    description: "Escolha o pão, o ponto da carne, a salada, inclua adicionais e muito mais!"
+                }
             }
         },
         async asyncData({app}){

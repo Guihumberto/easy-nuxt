@@ -1,6 +1,7 @@
 <template>
     <v-card max-width="800" class="mx-auto">
-    <v-form @submit.prevent="onsubmit" ref="form">
+    <div v-if="show">
+    <v-form @submit.prevent="onsubmit(order)" ref="form">
     <v-card-text>
       <v-container fluid>
         <v-row>
@@ -212,7 +213,8 @@
         dense outlined
         ></v-textarea>
         <v-card>
-        <v-card-title>Meu Burguer</v-card-title>
+        <v-card-title>Meu Burguer 
+          <v-spacer></v-spacer> R${{totalPrice | formatCurrency }}</v-card-title>
         <v-card-subtitle>Veja aqui como tá ficando a combinação do teu hamburguer!</v-card-subtitle>
         <v-card-text>
           <div>
@@ -239,6 +241,24 @@
         <v-btn type="submit" block color="success">Fazer pedido</v-btn>
     </v-card-actions>
     </v-form>
+    </div>
+    <div v-else>
+      <v-card-title>Pedido</v-card-title>
+      <v-card-text>
+        <v-list>
+          <template v-for="i in orders"> 
+          <v-list-item :key="i.id">{{i}}
+          </v-list-item>
+          <v-divider></v-divider>
+          </template>
+          <burguer-sodasBurguer />
+        </v-list>
+      </v-card-text>
+      <v-card-actions>
+        <v-btn color="primary" @click="show = !show" small>montar +1 Burguer</v-btn>
+        <v-btn color="success" @click="sendOrder" small>Concluir Pedido</v-btn>
+      </v-card-actions>
+    </div>
   </v-card>
 </template>
 
@@ -252,6 +272,7 @@
                 molhos: ['', 'Gorgonzola', 'Pimenta', 'Verde', 'Cheddar'],
                 steak: ['', 'mal passada', 'ao ponto', 'bem passada'],
                 order:{
+                    id: 0,
                     bread: false,
                     cheese: false,
                     salad: [],
@@ -260,21 +281,66 @@
                     meatAmunt: false,
                     add: [],
                     obs: "",
+                    price: 15
                 },
-                fav: true,
-                menu: false,
-                message: false,
+                show: true,
                 hints: true,
-                alert: true,
+                qtd: 0,
+                orders: [],
             }
         },
+        computed:{
+          totalPrice() {
+            let total = 0
+            total += this.order.price
+            switch(this.order.meatAmunt){
+              case '200g':
+                total+= 5
+                break;
+              
+              case '220g':
+                total+= 8
+                break;
 
-        methods:{
-            onsubmit(event){
-                if (this.$refs.form.validate()) {3
-                    this.$emit('dadosPedido', this.order)
-                    console.log(this.order)
+              default:
+                total
+            }
+
+            for(let i = 0; i < this.order.add.length; i++) {
+                if(this.order.add[i] == "Batata") {
+                  total+= 8
                 }
+                if(this.order.add[i] == "Bacon") {
+                  total+= 2
+                }
+                if(this.order.add[i] == "Linguiça") {
+                  total+= 2
+                }
+                if(this.order.add[i] == "Bolinho") {
+                  total+= 2
+                }
+                if(this.order.add[i] == "queijo") {
+                  total+= 2
+                }
+                if(this.order.add[i] == "cebola") {
+                  total+= 2
+                }
+            }
+
+
+            return total
+          }
+        },
+        methods:{
+            onsubmit(product){
+                if (this.$refs.form.validate()) {
+                    product.id++
+                    this.orders.push(`${product.id} - Burguer carne ${product.meatAmunt} (${product.meatSpot}), pão ${product.bread}, queijo ${product.cheese} e com molho ${product.sauce}, salada ${product.salad} e adicionais de ${product.add}. Obs: ${product.obs} R$${this.totalPrice}`)
+                    this.show = false
+                }
+            },
+            sendOrder(event){
+              this.$emit('dadosPedido', this.orders)
             }
         }
         

@@ -1,8 +1,13 @@
 <template>
     <v-container>
-        <burguer-mountImg />
-        <burguer-cadAddress v-if="pedido" @dadosEntrega="address = $event" />
-        <burguer-formBurguer v-else @dadosPedido="pedido = $event" />
+        <div v-if="address">
+            <burguer-payBurguer :address="address" :order="pedido" />
+        </div>
+        <div  v-else>
+            <burguer-mountImg />
+            <burguer-cadAddress v-if="pedido" @dadosEntrega="address = $event" />
+            <burguer-formBurguer v-else @dadosPedido="pedido = $event" />
+        </div>
     </v-container>
 </template>
 
@@ -12,7 +17,8 @@ export default {
     data(){
         return{
             pedido: undefined,
-            address: undefined
+            address: undefined,
+            show: false
         }
     }
 }
