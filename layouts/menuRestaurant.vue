@@ -144,6 +144,13 @@ import {mapGetters} from 'vuex'
    // middleware:"initData",
     data(){
       return{
+        landingPage: {
+          header: {
+            title: "Easy Boteco",
+            subtitle: "Easy Express",
+
+          }
+        },
         drawer: false,
         search: false,
         findProduct: '',
@@ -167,22 +174,22 @@ import {mapGetters} from 'vuex'
         ]
       }
     },
-    apollo: {
-      landingPage: {
-        query: gql`
-          query {
-            landingPage{
-              header{
-                title
-                subtitle
-                description
-              }
-            }
-          }
-        `,
-        update: data => data.landingPage
-      }
-    },
+    // apollo: {
+    //   landingPage: {
+    //     query: gql`
+    //       query {
+    //         landingPage{
+    //           header{
+    //             title
+    //             subtitle
+    //             description
+    //           }
+    //         }
+    //       }
+    //     `,
+    //     update: data => data.landingPage
+    //   }
+    // },
     computed:{
       ...mapGetters({
         snacks: "snackbars/readSnackbars"
