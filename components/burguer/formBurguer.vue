@@ -247,11 +247,10 @@
       <v-card-text>
         <v-list>
           <template v-for="i in orders"> 
-          <v-list-item :key="i.id">{{i}}
+          <v-list-item :key="i.id">
+            <div class="pedidoCube">{{i}}</div>
           </v-list-item>
-          <v-divider></v-divider>
           </template>
-          <burguer-sodasBurguer />
         </v-list>
       </v-card-text>
       <v-card-actions>
@@ -346,3 +345,13 @@
         
     }
 </script>
+
+<style scoped>
+  .pedidoCube{
+    border: solid 1px rgb(95, 95, 143);
+    padding: 10px 10px 10px 10px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+  }
+
+</style>

@@ -1,4 +1,10 @@
 <template>
+<v-card max-width="800" class="mx-auto">
+    <v-card-title>Deseja Adicionar bebidas?</v-card-title>
+    <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn small color="primary" @click="goAddress">Proximo</v-btn> 
+    </v-card-actions>
     <v-expansion-panels multiple>
         <v-expansion-panel v-for="product in products" :key="product.id">
             <v-expansion-panel-header>{{ product.name }} <v-spacer></v-spacer> R$ {{ product.price | formatCurrency }}</v-expansion-panel-header>
@@ -22,6 +28,7 @@
             </v-expansion-panel-content>
         </v-expansion-panel>
     </v-expansion-panels>
+</v-card>
 </template>
 
 <script>
@@ -58,6 +65,11 @@
                         description: "detalhes"
                     }
                 ]
+            }
+        },
+        methods: {
+            goAddress(event){
+                this.$emit('dadosAdicionais', true)
             }
         }
         

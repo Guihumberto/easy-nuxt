@@ -19,9 +19,9 @@
             </v-card-subtitle>
 
             <v-card-text class="text--primary">
-            <div>Somos um grupo familiar nascidos e criados na Princesa da Baixada, nossa querida cidade de Pinheiro.</div>
-            <div>Temos por objetivo prestar um serviço de atendimento de excelência com produtos de qualidade.</div>
-            <div>Somos apaixonados por Pinheiro!</div>
+            <p class="text-justify">Somos um grupo familiar nascidos e criados na Princesa da Baixada, nossa querida cidade de Pinheiro.
+            <br>Temos por objetivo prestar um serviço de atendimento de excelência com produtos de qualidade.
+            <br>Somos apaixonados por Pinheiro!</p>
             </v-card-text>
 
             <v-card-actions>
@@ -106,17 +106,13 @@
                         <v-list>
                             <v-list-item-group>
                                 <v-list-item>
-                                    <v-list-item-icon>
-                                        <v-icon>mdi-map-marker</v-icon>
-                                    </v-list-item-icon>
                                     <v-list-item-content>
                                         <v-list-item-title>
-                                            <p>Av. Fredereico Peixto, 108, Centro<br>
+                                            <p class="text-justy">Av. Fredereico Peixto, 108, Centro<br>
                                             Pinheiro-MA, <br>
-                                            CEP: 65063-010<br>
+                                            CEP: 65200-000<br>
                                             Em frente a Rodoviária Antiga
-                                            </p>
-                                            
+                                            </p>                   
                                         </v-list-item-title>
                                     </v-list-item-content>
                                 </v-list-item>

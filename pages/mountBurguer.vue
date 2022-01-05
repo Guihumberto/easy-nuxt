@@ -5,7 +5,8 @@
         </div>
         <div  v-else>
             <burguer-mountImg />
-            <burguer-cadAddress v-if="pedido" @dadosEntrega="address = $event" />
+            <burguer-cadAddress v-if="pedido && adicionais" @dadosEntrega="address = $event" />
+            <burguer-sodasBurguer v-else-if="pedido" @dadosAdicionais="adicionais = $event" />
             <burguer-formBurguer v-else @dadosPedido="pedido = $event" />
         </div>
     </v-container>
@@ -18,8 +19,13 @@ export default {
         return{
             pedido: undefined,
             address: undefined,
-            show: false
+            show: false,
+            adicionais: false
         }
     }
 }
 </script>
+
+<style scoped>
+
+</style>
