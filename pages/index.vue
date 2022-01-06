@@ -1,5 +1,12 @@
 <template>
     <v-container>
+        <v-dialog
+        v-model="dialog"
+        persistent
+        max-width="400"
+        >
+            <sales-mocoto @close="dialog = $event" />
+        </v-dialog>
         <v-row>
             <v-col>
                 <sectionTitle :sectionTitle="landingPage"/>
@@ -38,6 +45,7 @@
     export default {
         data(){
             return{
+                dialog: true,
                 landingPage: {
                        header: {
                              title: "Easy Boteco",

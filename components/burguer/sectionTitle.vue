@@ -7,7 +7,6 @@
             <v-card-title class="font-weight-black">Monte Seu Burguer</v-card-title>
         </v-img>
     <v-card-subtitle class="pb-0">Monte seu hamburguer do seu jeito!!</v-card-subtitle>
-    {{result}}
     <v-card-text class="text--primary">
         <div class="text-justify">Escolha o pão, o queijo a carne, molho e a salada. Inclua adicionais de bacon, batata, mandioca, bolinho de bacalhau e outros.</div>
     </v-card-text>
