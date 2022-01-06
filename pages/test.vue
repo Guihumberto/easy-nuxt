@@ -43,7 +43,7 @@
                         outlined
                         type="error"
                         >
-                        INDISPONÍVEL NO MOMENTO
+                        apenas sábados e domingos
                         </v-alert>
                     </v-expansion-panel-content>
                 </v-expansion-panel>
@@ -149,6 +149,8 @@
         layout: "menuRestaurant",
         data(){
             return{
+                today: new Date(),
+                result: true,
                 mobileBreakpoint: 600,
                 sheet: false,
                 cartItems: [],
@@ -247,6 +249,47 @@
                     total += (item.price * item.qtd);
                 });
                 return total;
+            },
+            currentDate(){
+                return this.today.getDay()
+            }
+        },
+        created(){
+        switch(this.currentDate){
+            case 0:
+                this.products[0].show = true
+                this.products[1].show = true
+                break;
+            
+            case 1:
+                this.products[0].show = true
+                this.products[1].show = true
+                break;
+
+            case 2:
+                this.products[0].show = true
+                this.products[1].show = true
+                break;
+            
+            case 3:
+                this.products[0].show = true
+                this.products[1].show = true
+                break;
+            
+            case 4:
+                this.products[0].show = false
+                this.products[1].show = false
+                break;
+
+            case 5:
+                this.products[0].show = true
+                this.products[1].show = true
+                break;
+
+            case 6:
+                this.products[0].show = true
+                this.products[1].show = true
+                break;
             }
         },
         methods:{

@@ -7,6 +7,7 @@
             <v-card-title class="font-weight-black">Monte Seu Burguer</v-card-title>
         </v-img>
     <v-card-subtitle class="pb-0">Monte seu hamburguer do seu jeito!!</v-card-subtitle>
+    {{result}}
     <v-card-text class="text--primary">
         <div class="text-justify">Escolha o pão, o queijo a carne, molho e a salada. Inclua adicionais de bacon, batata, mandioca, bolinho de bacalhau e outros.</div>
     </v-card-text>
@@ -17,7 +18,7 @@
         outlined
         to="/mountBurguer"
         >
-        <v-icon class="pa-2">mdi-hamburger</v-icon>Montar agora
+            <v-icon class="pa-2">mdi-hamburger</v-icon>Montar agora
         </v-btn>
         <v-spacer></v-spacer>
         <v-btn
@@ -34,12 +35,54 @@
 
 <script>
 export default {
+    data(){
+        return{
+            today: new Date(),
+            result: true
+        }
+    },
     methods: {
             onsubmit() {
                 const urlApi = /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent) ? "https://api.whatsapp.com/send" : "https://web.whatsapp.com/send" 
                 const texto = "?text=https://www.easyboteco.com.br"
                 window.open(urlApi + texto, "_blank")
             },
-    }
+    },
+    computed: {
+        currentDate(){
+            return this.today.getDay()
+        }
+    },
+    created(){
+        switch(this.currentDate){
+            case 0:
+                this.result = true
+                break;
+            
+            case 1:
+                this.result = false
+                break;
+
+            case 2:
+                this.result = false
+                break;
+            
+            case 3:
+                this.result = false
+                break;
+            
+            case 4:
+                this.result = false
+                break;
+
+            case 5:
+                this.result = false
+                break;
+
+            case 6:
+                this.result = true
+                break;
+        }
+    },
 }
 </script>
