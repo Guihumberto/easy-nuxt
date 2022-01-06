@@ -278,7 +278,7 @@
                 molhos: ['', 'Gorgonzola', 'Pimenta', 'Verde', 'Cheddar'],
                 steak: ['', 'mal passada', 'ao ponto', 'bem passada'],
                 order:{
-                    id: 0,
+                    id: 100,
                     bread: false,
                     cheese: false,
                     salad: [],
