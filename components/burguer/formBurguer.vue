@@ -243,14 +243,17 @@
     </v-form>
     </div>
     <div v-else>
-      <v-card-title>Pedido</v-card-title>
+      <v-card-title>Pedido ({{this.orders.length}}&nbsp<span v-if="this.orders.length > 1">itens</span><span v-else>item</span>)</v-card-title>
       <v-card-text>
         <v-list>
           <template v-for="i in orders"> 
           <v-list-item :key="i.id">
             <div class="pedidoCube">
               <p class="text-justify">
-              {{i.id}} - {{i.name}} ({{i.carne2}}), pão {{i.bread}} com queijo {{i.cheese}} e molho {{i.sauce}}. Salada {{i.salad}} e Adicionais {{i.add}} Observação: {{i.obs}}
+              {{i.id}} - {{i.name}} ({{i.carne2}}), pão {{i.bread}} com queijo {{i.cheese}} e molho {{i.sauce}}. 
+                <span v-show="i.salad[0]"> Salada com <span v-for="item in i.salad" :key="item">{{item}}, </span></span> 
+                <span v-show="i.add[0]">e Adicionais de <span v-for="add in i.add" :key="add">{{add}}, </span></span>
+                <br><span v-show="i.obs">Observação: {{i.obs}}</span>
               </p>
             </div>
           </v-list-item>
@@ -342,7 +345,8 @@
             onsubmit(product){
                 if (this.$refs.form.validate()) {
                     product.id++
-                    let burguer = {id: product.id, qtd:1, name:`Burguer de ${product.meatAmunt}`, carne2: product.meatSpot, bread: product.bread, cheese: product.cheese, sauce: product.sauce, salad: product.salad, add: product.add, obs: product.obs, price: this.totalPrice}
+                    let adicionais = product.add[0] ? "e adicionais" : ""
+                    let burguer = {id: product.id, qtd:1, name:`Burguer de ${product.meatAmunt} ${adicionais}`, carne2: product.meatSpot, bread: product.bread, cheese: product.cheese, sauce: product.sauce, salad: product.salad, add: product.add, obs: product.obs, price: this.totalPrice}
                     this.orders.push(burguer)
                     this.show = false
                 }
@@ -361,6 +365,7 @@
     padding: 10px 10px 10px 10px;
     border-radius: 8px;
     margin-bottom: 5px;
+    width: 100%;
   }
 
 </style>
