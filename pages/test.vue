@@ -262,18 +262,18 @@
                 break;
             
             case 1:
-                this.products[0].show = true
-                this.products[1].show = true
+                this.products[0].show = false
+                this.products[1].show = false
                 break;
 
             case 2:
-                this.products[0].show = true
-                this.products[1].show = true
+                this.products[0].show = false
+                this.products[1].show = false
                 break;
             
             case 3:
-                this.products[0].show = true
-                this.products[1].show = true
+                this.products[0].show = false
+                this.products[1].show = false
                 break;
             
             case 4:
@@ -282,8 +282,8 @@
                 break;
 
             case 5:
-                this.products[0].show = true
-                this.products[1].show = true
+                this.products[0].show = false
+                this.products[1].show = false
                 break;
 
             case 6:

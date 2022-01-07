@@ -2,7 +2,6 @@
     <v-container>
         <v-dialog
         v-model="dialog"
-        persistent
         max-width="400"
         >
             <sales-mocoto @close="dialog = $event" />
