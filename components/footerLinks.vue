@@ -8,12 +8,13 @@
         <v-card-text>
             <v-btn
             v-for="icon in icons"
-            :key="icon"
+            :key="icon.icon"
             class="mx-4 white--text"
             icon
+            :href="icon.url" target="_blank" 
             >
                 <v-icon size="24px">
-                    {{ icon }}
+                    {{ icon.icon }}
                 </v-icon>
             </v-btn>
         </v-card-text>
@@ -31,7 +32,9 @@
         <v-card-text class="white--text">
              <img src="@/assets/img/logo.png" />
              <v-divider></v-divider>
-            &copy; {{new Date().getFullYear()}} — <strong>Grupo Easy</strong>
+            Rua Frederico Peixoto, 108, Centro.<br>
+            Pinheiro-MA - CEP: 65200-000<br>
+             &copy; {{new Date().getFullYear()}} — <strong>Grupo Easy</strong>
         </v-card-text>
     </v-card>
     </v-col>
@@ -42,10 +45,10 @@
   export default {
     data: () => ({
       icons: [
-        'mdi-facebook',
-        'mdi-youtube',
-        'mdi-email',
-        'mdi-instagram',
+        {icon:'mdi-map-marker-radius', url: 'https://goo.gl/maps/pdjqTcvidsy17oQHA'},
+        {icon:'mdi-youtube', url: 'https://www.youtube.com/channel/UChSfBWVfMee02wRcqhsQ1FQ'},
+        {icon:'mdi-email', url: 'juninho.joao@hotmail.com'},
+        {icon:'mdi-instagram', url: 'https://www.instagram.com/easyboteco/'},
       ],
     }),
     props: {

@@ -158,7 +158,7 @@
                     name: "Hamburguer",
                     img: "https://media.istockphoto.com/photos/hamburger-with-cheese-and-french-fries-picture-id1188412964?k=20&m=1188412964&s=612x612&w=0&h=Ow-uMeygg90_1sxoCz-vh60SQDssmjP06uGXcZ2MzPY=",
                     price: 15,
-                    description: "Escolha o pão, o ponto da carne, a salada, inclua adicionais e muito mais!",
+                    description: "Escolha o pão, o ponto da carne, a salada, inclua adicionais e muito mais! Delivery de quarta a domingo, das 18hrs às 23hrs.",
                     show: true
                 },
                 products: [
