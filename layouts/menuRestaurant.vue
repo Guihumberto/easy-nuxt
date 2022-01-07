@@ -120,10 +120,11 @@
         <v-btn
           color="green accent-4"
           text
-          v-for="menuNav in menuNavs" :key="menuNav.title"
+          v-for="menuNav in links" :key="menuNav.text"
           :to="menuNav.url"
+          v-show="menuNav.show"
         >
-          <span>{{menuNav.title}}</span>
+          <span>{{menuNav.text}}</span>
   
           <v-icon>{{menuNav.icon}}</v-icon>
         </v-btn>
@@ -159,19 +160,14 @@ import {mapGetters} from 'vuex'
         snack: false,
         loginmenu: false,
         links: [
-          { text: 'Home', icon: 'mdi-home', url:'/'},
-          { text: 'Cardápio', icon: 'mdi-food-fork-drink', url:'/menu'},
-          { text: 'Delivery', icon: 'mdi-moped-outline', url:'/test'},
-          { text: 'Hamburguer', icon: 'mdi-hamburger', url:'/burguer'},
-          //{ text: 'Cadastrar', icon: 'mdi-hamburger-plus', url:'/addProducts'},
-          { text: 'Sobre', icon: 'mdi-help-box', url:'/about'}
+          { text: 'Home', icon: 'mdi-home', url:'/', show: true},
+          { text: 'Delivery', icon: 'mdi-moped-outline', url:'/test', show: true},
+          { text: 'Cardápio', icon: 'mdi-food-fork-drink', url:'/menu', show: true},
+          { text: 'Hamburguer', icon: 'mdi-hamburger', url:'/burguer', show: false},
+          //{ text: 'Cadastrar', icon: 'mdi-hamburger-plus', url:'/addProducts', show: true},
+          { text: 'Sobre', icon: 'mdi-information-outline', url:'/about', show: true}
         ],
-        menuNavs: [
-          { title: 'Home', icon: 'mdi-home', url:'/'},
-          { title: 'Delivery', icon: 'mdi-moped-outline', url:'/test'},
-          { title: 'Cardápio', icon: 'mdi-silverware-fork-knife', url:'/menu'},
-          { title: 'Sobre', icon: 'mdi-information-outline', url:'/about'},
-        ]
+
       }
     },
     // apollo: {

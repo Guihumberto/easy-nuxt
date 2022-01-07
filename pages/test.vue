@@ -1,5 +1,5 @@
 <template>
-<v-card max-width="800" class="mx-auto">
+<v-card max-width="800" class="mx-auto my-2">
     <v-container id="app">
         <v-app id="inspire">
             <div class="text-center">
@@ -63,6 +63,28 @@
                                 <div class="mt-2 d-flex">
                                     <v-btn color="success" class="mr-2" small to="/burguer" >Montar</v-btn>
                                     <detailProduct :product="burguer" />
+                                </div>
+                                
+                            </div>
+                        </div>  
+                    </v-expansion-panel-content>
+                </v-expansion-panel>
+                <v-expansion-panel v-for="i in encomendar" :key="i.name">
+                    <v-expansion-panel-header>{{i.name}}<v-spacer></v-spacer>R$ {{i.price | formatCurrency}}</v-expansion-panel-header>
+                    <v-expansion-panel-content>
+                        <div class="d-flex">
+                            <div class="mr-5">
+                                <v-img class="borderImg" contain width="100" :src="i.img"></v-img>
+                            </div>
+                            <div>
+                                <div class="d-flex">
+                                    <p class="text-left">Torta de Limão Inteira - apenas para encomenda.</p>
+                                    <div class="mt-4"></div>
+                                </div>
+
+                                <div class="mt-2 d-flex">
+                                    <v-btn color="success" class="mr-2" small to="/encomenda" >Encomendar</v-btn>
+                                    <detailProduct :product="i" />
                                 </div>
                                 
                             </div>
@@ -161,6 +183,15 @@
                     description: "Escolha o pão, o ponto da carne, a salada, inclua adicionais e muito mais! Delivery de quarta a domingo, das 18hrs às 23hrs.",
                     show: true
                 },
+                encomendar:[
+                    {
+                        name: "Torta de Limão",
+                        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH6SN-QRjFVV1V6m0ZlTEIgylct32dmmddIQ&usqp=CAU",
+                        price: 120,
+                        description:"Torta de Limão Inteira (6 a 8 fatias). Apenas para encomenda.",
+                        show: true, 
+                    }
+                ],
                 products: [
                     {
                     id: 1,
