@@ -5,6 +5,7 @@
       >
       <v-card
     class="mx-auto"
+    max-width="800"
         >
             <v-img
             class="white--text align-end"
@@ -43,6 +44,7 @@
             </v-card-actions>
         </v-card>
         
+        <v-card max-width="800" class="mx-auto" flat tile color="rgb(241, 222, 222)">
         <v-row class="my-auto">
             <v-col >
                 <v-card height="192">
@@ -136,7 +138,7 @@
                 </v-card>
             </v-col>
         </v-row>
-       
+       </v-card>
       </v-container>
 </template>
 
