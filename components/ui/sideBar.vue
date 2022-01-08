@@ -29,10 +29,10 @@ export default {
             links: [
                 { text: 'Home', icon: 'mdi-home', url:'/'},
                 { text: 'Cardápio', icon: 'mdi-food-fork-drink', url:'/menu'},
-                { text: 'Delivery', icon: 'mdi-moped-outline', url:'/test'},
-                { text: 'Hamburguer', icon: 'mdi-hamburger', url:'/burguer'},
+                { text: 'Delivery', icon: 'mdi-moped', url:'/test'},
+                //{ text: 'Hamburguer', icon: 'mdi-hamburger', url:'/burguer'},
                 //{ text: 'Cadastrar', icon: 'mdi-hamburger-plus', url:'/addProducts'},
-                { text: 'Sobre', icon: 'mdi-help-box', url:'/about'}
+                { text: 'Sobre', icon: 'mdi-information', url:'/about'}
             ]
         }
     },

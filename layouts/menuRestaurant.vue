@@ -131,6 +131,14 @@ import {mapGetters} from 'vuex'
         type: 'forms-login',
         snack: false,
         loginmenu: false,
+        links: [
+                { text: 'Home', icon: 'mdi-home', url:'/', show: true},
+                { text: 'Cardápio', icon: 'mdi-food-fork-drink', url:'/menu', show: true},
+                { text: 'Delivery', icon: 'mdi-moped', url:'/test', show: true},
+                { text: 'Hamburguer', icon: 'mdi-hamburger', url:'/burguer', show: false},
+                //{ text: 'Cadastrar', icon: 'mdi-hamburger-plus', url:'/addProducts'},
+                { text: 'Sobre', icon: 'mdi-information', url:'/about', show: true}
+            ]
       }
     },
     // apollo: {
