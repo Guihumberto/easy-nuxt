@@ -43,7 +43,7 @@
                         outlined
                         type="error"
                         >
-                        apenas sábados e domingos
+                        {{product.msg}}
                         </v-alert>
                     </v-expansion-panel-content>
                 </v-expansion-panel>
@@ -181,7 +181,8 @@
                     img: "https://media.istockphoto.com/photos/hamburger-with-cheese-and-french-fries-picture-id1188412964?k=20&m=1188412964&s=612x612&w=0&h=Ow-uMeygg90_1sxoCz-vh60SQDssmjP06uGXcZ2MzPY=",
                     price: 15,
                     description: "Escolha o pão, o ponto da carne, a salada, inclua adicionais e muito mais! Delivery de quarta a domingo, das 18hrs às 23hrs.",
-                    show: true
+                    show: true, 
+                    msg:""
                 },
                 encomendar:[
                     {
@@ -190,6 +191,7 @@
                         price: 120,
                         description:"Torta de Limão Inteira (6 a 8 fatias). Apenas para encomenda.",
                         show: true, 
+                        msg:""
                     }
                 ],
                 products: [
@@ -200,7 +202,8 @@
                     price: 25,
                     description: "Serve bem 2 pessoas. Acompahnha arroz, farofa ou farinha e limão.",
                     qtd: 1,
-                    show: true
+                    show: true, 
+                    msg:"apenas sábados e domingos"
                     },
                      {
                     name: "Mocotó",
@@ -208,7 +211,8 @@
                     price: 25,
                     description: "Serve bem 2 pessoas. Acompahnha arroz, farofa ou farinha e limão.",
                     qtd: 1,
-                    show: true
+                    show: true, 
+                    msg:"apenas sábados e domingos"
                     },
                      {
                     id: 2,
@@ -217,7 +221,8 @@
                     price: 5,
                     description: "Refrigerante Jesus em Lata 330ml.",
                     qtd: 1,
-                    show: true
+                    show: true, 
+                    msg:""
                     },
                      {
                     id: 3,
@@ -226,7 +231,8 @@
                     price: 5,
                     description: "Refrigerante Jesus em Lata 330ml.",
                     qtd: 1,
-                    show: true
+                    show: true, 
+                    msg:""
                     },
                      {
                     id: 4,
@@ -235,7 +241,8 @@
                     price: 10,
                     description: "Cerveja Budweiser Budwieser 330ml gelada.",
                     qtd: 1,
-                    show: true
+                    show: true, 
+                    msg:""
                     },
                      {
                     id: 5,
@@ -244,7 +251,8 @@
                     price: 8,
                     description: "Cerveja Longneck Budwieser 330ml gelada.",
                     qtd: 1,
-                    show: true
+                    show: true, 
+                    msg:""
                     },
                 ]
             }
@@ -288,8 +296,10 @@
         created(){
         switch(this.currentDate){
             case 0:
-                this.products[0].show = true
-                this.products[1].show = true
+                this.products[0].show = false
+                this.products[0].msg = "Indisponível"
+                this.products[1].show = false
+                this.products[1].msg = "Indisponível"
                 break;
             
             case 1:
@@ -318,8 +328,10 @@
                 break;
 
             case 6:
-                this.products[0].show = true
-                this.products[1].show = true
+                this.products[0].show = false
+                this.products[0].msg = "Indisponível"
+                this.products[1].show = false
+                this.products[1].msg = "Indisponível"
                 break;
             }
         },
