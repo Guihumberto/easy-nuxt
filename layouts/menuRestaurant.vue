@@ -1,27 +1,6 @@
 <template>
   <v-app>
-    <v-navigation-drawer 
-      app
-      v-model="drawer"
-      :clipped="$vuetify.breakpoint.lgAndUp"
-    >
-     <v-list color="primary--text">
-       <v-subheader>Easy Express</v-subheader>
-       <v-list-item-group
-          color="primary"
-        >
-        <v-list-item v-for="link in links" :key="link.text" :to="link.url">
-          <v-list-item-icon>
-            <v-icon>{{ link.icon }}</v-icon>
-          </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title> {{ link.text }} </v-list-item-title>
-            </v-list-item-content>
-        </v-list-item>
-       </v-list-item-group>
-     </v-list>
-    </v-navigation-drawer>
-
+    <ui-sideBar :subtitleSite="subtitleSite" :drawer="drawer" />
     <v-app-bar app :clipped-left="$vuetify.breakpoint.lgAndUp" color="green" dark>
       <template v-slot:img="{ props }">
         <v-img
@@ -30,7 +9,7 @@
         ></v-img>
       </template>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title v-text="landingPage.header.title"></v-toolbar-title>
+      <v-toolbar-title v-text="subtitleSite"></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-menu
         v-model="search"
@@ -145,13 +124,6 @@ import {mapGetters} from 'vuex'
    // middleware:"initData",
     data(){
       return{
-        landingPage: {
-          header: {
-            title: "Easy Boteco",
-            subtitle: "Easy Express",
-
-          }
-        },
         drawer: false,
         search: false,
         findProduct: '',
@@ -159,15 +131,6 @@ import {mapGetters} from 'vuex'
         type: 'forms-login',
         snack: false,
         loginmenu: false,
-        links: [
-          { text: 'Home', icon: 'mdi-home', url:'/', show: true},
-          { text: 'Delivery', icon: 'mdi-moped-outline', url:'/test', show: true},
-          { text: 'Cardápio', icon: 'mdi-food-fork-drink', url:'/menu', show: true},
-          { text: 'Hamburguer', icon: 'mdi-hamburger', url:'/burguer', show: false},
-          //{ text: 'Cadastrar', icon: 'mdi-hamburger-plus', url:'/addProducts', show: true},
-          { text: 'Sobre', icon: 'mdi-information-outline', url:'/about', show: true}
-        ],
-
       }
     },
     // apollo: {
@@ -188,13 +151,12 @@ import {mapGetters} from 'vuex'
     // },
     computed:{
       ...mapGetters({
+        titleSite: 'readTittleSite',
+        subtitleSite: 'readSubtitleSite',
         snacks: "snackbars/readSnackbars"
       })
     },
     methods:{
-      // test(){
-      //   this.$store.dispatch("snackbars/setSnack", {text:'hola action', color:'info'})
-      // },
       logout(){
         this.$auth.logout()
         this.loginmenu = false

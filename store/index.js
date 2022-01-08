@@ -1,10 +1,18 @@
 
 export const state = () => ({
+    titleSite: "Easy Boteco",
+    subtitleSite: "Easy Express",
     counter:0,
     categories:[]
 })
 
 export const getters = {
+    readTittleSite(state){
+        return state.titleSite
+    },
+    readSubtitleSite(state){
+        return state.subtitleSite
+    },
     readCategories(state){
         return state.categories
     },

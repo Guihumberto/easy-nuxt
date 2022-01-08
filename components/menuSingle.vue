@@ -42,7 +42,7 @@
           R${{ menu.price }}
         </div>
   
-        <div>{{ menu.description }}</div>
+        <div>{{ menu.description | truncate(42) }}</div>
       </v-card-text>
   
       <v-divider class="mx-4"></v-divider>

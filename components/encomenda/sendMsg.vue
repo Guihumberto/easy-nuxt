@@ -78,7 +78,7 @@ export default {
                 const urlApi = /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent) ? "https://api.whatsapp.com/send" : "https://web.whatsapp.com/send" 
                 const somaTotal = "120,00"
                 const troco = "Pagamento de 50% (R$60,00)"
-                const atexto = "*Pedido*: \n"+ novo +"\n====================\n*Valor Total* R$" + somaTotal + " \n *Pagamento*: \n" + troco + " \n ====================\n *Nome*: " + this.order.name + " \n *Endereço*: "+ this.order.address +", Nro: " + this.order.nro + ", Bairro: " + this.order.district + "\n Ponto de Referência: "+ this.order.referencePoint +"\n=====================";
+                const atexto = "*Pedido*: \n"+ novo +"\n====================\n*Valor Total* R$" + somaTotal + this.order.obs +" \n *Pagamento*: \n" + troco + " \n ====================\n *Nome*: " + this.order.name + " \n *Endereço*: "+ this.order.address +", Nro: " + this.order.nro + ", Bairro: " + this.order.district + "\n Ponto de Referência: "+ this.order.referencePoint +"\n=====================";
                 const texto = window.encodeURIComponent(atexto);
                 window.open(urlApi + "?phone=" + this.phone + "&text=" + texto, "_blank")
                 this.$router.push('confirmOrder')

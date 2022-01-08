@@ -31,7 +31,8 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/filters.js',
-    '@/plugins/mask.js'
+    '@/plugins/mask.js',
+    '@/plugins/vue2-filters'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

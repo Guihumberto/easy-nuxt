@@ -16,6 +16,7 @@
     "graphql-tag": "^2.12.6",
     "nuxt": "^2.15.7",
     "v-mask": "^2.3.0",
+    "vue2-filters": "^0.14.0",
     "vuetify": "^2.5.5"
   },
   "devDependencies": {
