@@ -296,9 +296,9 @@
         created(){
         switch(this.currentDate){
             case 0:
-                this.products[0].show = false
+                this.products[0].show = true
                 this.products[0].msg = "Indisponível"
-                this.products[1].show = false
+                this.products[1].show = true
                 this.products[1].msg = "Indisponível"
                 break;
             
