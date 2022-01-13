@@ -129,7 +129,6 @@
                     required: (value) => !!value || "Este campo é obrigatório",
                     dateLimit: (v) => (v||'') > new Date().toLocaleDateString('pt-BR', {timeZone: 'UTC'}).split("/").reverse().join("-") || "Nao pode mesmo dia ou data anterior",
                 },
-                currentDate: new Date().toLocaleDateString('pt-BR', {timeZone: 'UTC'}).split("/").reverse().join("-"),
                 address:{
                     name: "",
                     address: "",

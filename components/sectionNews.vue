@@ -1,5 +1,6 @@
 <template>
-    <v-card>
+    <v-card  max-width="1080"
+        class="mx-auto">
         <v-card-title class="secondary--text">{{ now.sectionSale.title }}</v-card-title>
         <v-card-text class="black--text">
             <v-row>

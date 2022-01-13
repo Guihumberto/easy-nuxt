@@ -2,6 +2,8 @@
     <v-card
         color="#385F73"
         dark
+        max-width="1080"
+        class="mx-auto"
     >
         <div class="pa-5">
             <img class="mx-7" src="@/assets/img/logo.png" />

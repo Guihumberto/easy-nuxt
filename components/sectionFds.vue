@@ -1,5 +1,6 @@
 <template>
-    <v-card>
+    <v-card  max-width="1080"
+        class="mx-auto">
         <v-card-title class="secondary--text">Todos os Sábados e Domingos</v-card-title>
         <v-card-subtitle>Mocotó e Feijoada</v-card-subtitle>
         <v-card-text class="black--text">

@@ -1,6 +1,5 @@
 <template>
     <v-container>
-        <v-card max-width="800" class="mx-auto">
         <v-dialog
         v-model="dialog"
         max-width="400"
@@ -36,7 +35,6 @@
         </v-row>
         <menuSingleCard />
         <footerLinks :categories="categories" />
-        </v-card>
     </v-container>
 </template>
 
