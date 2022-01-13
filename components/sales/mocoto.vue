@@ -6,6 +6,7 @@
         class="mb-2"
         >Entrega Grátis**</v-toolbar>
         <v-card-title>Mocotó e Feijoada</v-card-title>
+        <v-card-subtitle>Todos os sábados e domingos</v-card-subtitle>
         <v-card-text>
             <v-img
                         src="https://media.istockphoto.com/photos/feijoada-a-typical-brazilian-food-picture-id1313384844?b=1&k=20&m=1313384844&s=170667a&w=0&h=nzar6kVi6gG-iHPXo1cc82tBb-ilbQ-gmpLRgbon9eI="

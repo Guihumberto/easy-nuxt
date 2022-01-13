@@ -17,6 +17,7 @@
             label="Data da Entrega"
             type="date"
             v-model="address.dateOrder"
+            :rules="[rules.required, rules.dateLimit]"
             dense
             outlined
             ></v-text-field>
@@ -126,8 +127,9 @@
                 items: ['', 'Entrega', 'Retirada'],
                 rules: {
                     required: (value) => !!value || "Este campo é obrigatório",
-                    dateLimit: (v) => (v||'').length >= 8 || "# dias de antecedência",
+                    dateLimit: (v) => (v||'') > new Date().toLocaleDateString('pt-BR', {timeZone: 'UTC'}).split("/").reverse().join("-") || "Nao pode mesmo dia ou data anterior",
                 },
+                currentDate: new Date().toLocaleDateString('pt-BR', {timeZone: 'UTC'}).split("/").reverse().join("-"),
                 address:{
                     name: "",
                     address: "",
@@ -146,7 +148,7 @@
                 if (this.$refs.form.validate()) {
                     return true
                 }
-            }
+            },
         }
     }
 </script>

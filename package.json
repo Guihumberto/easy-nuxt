@@ -12,6 +12,7 @@
     "@nuxtjs/apollo": "^4.0.1-rc.5",
     "@nuxtjs/auth-next": "5.0.0-1637745161.ea53f98",
     "@nuxtjs/axios": "^5.13.6",
+    "animate.css": "3.7",
     "core-js": "^3.15.1",
     "graphql-tag": "^2.12.6",
     "nuxt": "^2.15.7",

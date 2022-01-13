@@ -8,7 +8,7 @@
             </v-img>
             <v-card-subtitle class="pb-0">Torta de Limão para Encomenda</v-card-subtitle>
             <v-card-text class="text--primary">
-                <div class="text-justify">Serve bem 6 a 8 pessoas. Aceitamos ecomendas com antecedência mímina de até 3 dias.
+                <div class="text-justify">Serve bem de 6 a 8 pessoas. Aceitamos encomendas com antecedência mímina de até 3 dias.
                     <br>
                     Confirmação da encomenda condicionado ao pagamento antecipado de 50% do produto.
                 </div>
